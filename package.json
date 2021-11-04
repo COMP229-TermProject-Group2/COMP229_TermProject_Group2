@@ -1,6 +1,6 @@
 {
   "name": "comp229-group2",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -14,5 +14,17 @@
     "morgan": "~1.9.1",
     "nodemon": "^2.0.14"
   },
-  "main": "server.js"
+  "main": "server.js",
+  "description": "comp229-group2",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brmorg-to/COMP229_TermProject_Group2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brmorg-to/COMP229_TermProject_Group2/issues"
+  },
+  "homepage": "https://github.com/brmorg-to/COMP229_TermProject_Group2#readme"
 }
