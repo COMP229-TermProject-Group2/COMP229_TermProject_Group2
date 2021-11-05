@@ -7,6 +7,12 @@ const logger = require("morgan");
 // designated space for authentication modules (not for first release)
 
 // designated space for database setup
+const mongoose = require("mongoose");
+const DB = require("./db");
+
+//point mongoose to the DB URI
+
+//
 
 const indexRouter = require("../routes/index");
 const usersRouter = require("../routes/users");
@@ -40,7 +46,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", { title: "Error" });
 });
 
 module.exports = app;
