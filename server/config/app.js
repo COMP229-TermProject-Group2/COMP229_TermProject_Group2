@@ -1,17 +1,23 @@
-let createError = require("http-errors");
-let express = require("express");
-let path = require("path");
-let cookieParser = require("cookie-parser");
-let logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
 // designated space for authentication modules (not for first release)
 
 // designated space for database setup
+const mongoose = require("mongoose");
+const DB = require("./db");
 
-let indexRouter = require("../routes/index");
-let usersRouter = require("../routes/users");
+//point mongoose to the DB URI
 
-let app = express();
+//
+
+const indexRouter = require("../routes/index");
+const usersRouter = require("../routes/users");
+
+const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "../views"));
@@ -40,7 +46,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", { title: "Error" });
 });
 
 module.exports = app;
