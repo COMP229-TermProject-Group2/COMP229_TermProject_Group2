@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-const app = require("./app");
+const app = require("./server/config/app");
 const debug = require("debug")("comp229-group2:server");
 const http = require("http");
 
