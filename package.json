@@ -1,9 +1,13 @@
 {
   "name": "comp229-group2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./server.js"
+  },
+  "engines": {
+    "node": "^14.18.0",
+    "npm": "^6.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -30,5 +34,6 @@
   "bugs": {
     "url": "https://github.com/brmorg-to/COMP229_TermProject_Group2/issues"
   },
-  "homepage": "https://github.com/brmorg-to/COMP229_TermProject_Group2#readme"
+  "homepage": "https://github.com/brmorg-to/COMP229_TermProject_Group2#readme",
+  "devDependencies": {}
 }
