@@ -27,13 +27,13 @@
   "description": "comp229-group2",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brmorg-to/COMP229_TermProject_Group2.git"
+    "url": "git+https://github.com/COMP229-TermProject-Group2/COMP229_TermProject_Group2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brmorg-to/COMP229_TermProject_Group2/issues"
+    "url": "https://https://github.com/COMP229-TermProject-Group2/COMP229_TermProject_Group2/issues"
   },
-  "homepage": "https://github.com/brmorg-to/COMP229_TermProject_Group2#readme",
+  "homepage": "https://https://github.com/COMP229-TermProject-Group2/COMP229_TermProject_Group2.git#readme",
   "devDependencies": {}
 }
