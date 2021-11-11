@@ -6,8 +6,11 @@ const tournamentModel = mongoose.Schema(
     Organizer: String,
     Size: Number,
     Date: String,
+    Active: Boolean
   },
   {
     collection: "tournaments",
   }
 );
+
+module.exports = mongoose.model('tournamentModel', tournamentModel);
