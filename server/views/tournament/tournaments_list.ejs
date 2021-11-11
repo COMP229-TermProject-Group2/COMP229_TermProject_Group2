@@ -1,0 +1,14 @@
+<%- include ../partials/header.ejs %><%- include ../partials/main_nav.ejs %>
+<body>
+  <h1>Welcome to the <%= title %> page</h1>
+
+  <a href="/tournaments/add" class="btn btn-primary" role="button"
+    ><i class="fas fa-plus-circle"></i>Add a Tournament</a
+  >
+
+  <a href="/tournaments/edit/#" class="btn btn-primary btn-sm"
+    ><i class="fas fa-pencil-alt"></i> Edit</a
+  >
+</body>
+
+<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>

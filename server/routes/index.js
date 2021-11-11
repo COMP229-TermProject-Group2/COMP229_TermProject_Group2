@@ -10,7 +10,7 @@ router.get("/", function (req, res, next) {
 
 /* GET home page. */
 router.get("/home", function (req, res, next) {
-  res.render("index", { title: "Landing Page" });
+  res.render("index", { title: "Home" });
 });
 
 //GET Route for the tournament_list page - READ Operation
