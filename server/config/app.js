@@ -11,15 +11,16 @@ const mongoose = require("mongoose");
 const DB = require("./db");
 
 //point mongoose to the DB URI
-mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(DB.URI, { useNewUrlParser: true, useUnifiedTopology: true });
 const mongoDB = mongoose.connection;
-mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
-mongoDB.once('open', () => {
-  console.log('Connected to MongoDB...');
+mongoDB.on("error", console.error.bind(console, "Connection Error:"));
+mongoDB.once("open", () => {
+  console.log("Connected to MongoDB...");
 });
 
 const indexRouter = require("../routes/index");
 const usersRouter = require("../routes/users");
+const tournamentRouter = require("../routes/tournaments");
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, "../../node_modules")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/tournaments", tournamentRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
