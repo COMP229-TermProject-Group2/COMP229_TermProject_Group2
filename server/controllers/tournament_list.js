@@ -11,8 +11,8 @@ module.exports.displayTournamentList = (req, res, next) => {
             return console.error(err);
         }
         else{
-            /*Waiting on the view for the tournament list to finish this next line.
-            res.render('', {title: 'Tournament List', TournamentList: tournamentList})*/
+        
+            res.render('/', {title: 'Tournament List', TournamentList: tournamentList});
         }
-    })
+    });
 }

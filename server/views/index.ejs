@@ -20,5 +20,36 @@
     <script src="/jquery/dist/jquery.min.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/Scripts/app.js"></script>
+
+  <table class="table table-bordered table-striped table-hover">
+                <!-- Header Row-->
+                <tr class="d-flex">
+                    <th class="text-center col-2">Name</th>
+                    <th class="text-center col-2">Organizer</th>
+                    <th class="text-center col-1">Size</th>
+                    <th class="col-4">Date</th>
+                    <th class="text-center col-1">Active</th>
+                    <th class="text-center col-1"></th>
+                    <th class="text-center col-1"></th>
+                </tr>
+
+                <% for(let count = 0; count < tournamentList.length; count++) { %>
+                    <tr class="d-flex">
+                        <td class="text-center col-2"><%= tournamentList[count].Name %></td>
+                        <td class="text-center col-2"><%= tournamentList[count].Organizer %></td>
+                        <td class="text-center col-1"><%= tournamentList[count].Size %></td>
+                        <td class="col-4"><%= tournamentList[count].Date %></td>
+                        <td class="text-center col-1"><%= tournamentList[count].Active %></td>
+                        <td class="text-center col-1">
+                            <a href="/book-list/edit/<%= tournamentList[count]._id %>" class="btn btn-primary">
+                                <i class="fas fa-pencil-alt"></i> Edit</a>
+                        </td>
+                        <td class="text-center col-1">
+                            <a href="/book-list/delete/<%= tournamentList[count]._id %>" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i> Delete</a>
+                        </td>
+                    </tr>
+                <% } %>
+                </table>
   </body>
 </html>
