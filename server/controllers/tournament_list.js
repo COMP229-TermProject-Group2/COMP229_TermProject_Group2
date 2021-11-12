@@ -13,7 +13,7 @@ module.exports.displayTournamentList = (req, res, next) => {
 
             console.log(TournamentList);
 
-            res.render('tournament/list', {title: 'Tournament List', TournamentList: tournamentList})
+            res.render('tournament/list', {title: 'Tournament List', TournamentList}) //removed: : tournamentList
         }
     })
 }
