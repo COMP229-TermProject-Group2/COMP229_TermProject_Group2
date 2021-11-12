@@ -5,7 +5,7 @@ const tournament_listController = require('../controllers/tournament_list');
 
 /* GET Tournaments page. */
 router.get("/", (req, res, next) => {
-  res.render("tournament/tournaments_list", { title: "Tournaments List" });
+  res.render("tournament/list", { title: "Tournaments List" });
 });
 
 /* GET Tournaments Add page. */
