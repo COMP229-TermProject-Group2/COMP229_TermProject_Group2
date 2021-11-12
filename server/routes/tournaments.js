@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET Tournaments page. */
 router.get("/", (req, res, next) => {
-  res.render("tournament/tournaments_list", { title: "Tournaments List" });
+  res.render("tournament/list", { title: "Tournaments List" });
 });
 
 /* GET Tournaments Add page. */
