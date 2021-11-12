@@ -2,17 +2,100 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-//This is a reference for the database schema (model)
-const Tournament_List = require('../models/tournament');
+const Tournament = require('../models/tournament');
 
 module.exports.displayTournamentList = (req, res, next) => {
-    Tournament_List.find((err, tournamentList) => {
+    Tournament.find((err, TournamentList) => {
         if(err){
             return console.error(err);
         }
         else{
-            /*Waiting on the view for the tournament list to finish this next line.
-            res.render('', {title: 'Tournament List', TournamentList: tournamentList})*/
+
+            console.log(TournamentList);
+
+            res.render('tournament/list', {title: 'Tournament List', TournamentList: tournamentList})
         }
     })
+}
+
+module.exports.displayAddPage = (req, res, next) => {
+    res.render('tournament/add', {title: 'Add Tournament'});
+}
+
+module.exports.processAddPage = (req, res, next) => {
+    let newTournament = Tournament({
+        "Name": req.body.name,
+        "Organizer": req.body.organizer,
+        "Size": req.body.size,
+        "Date": req.body.date,
+        "Active": req.body.state,
+    });
+
+    Tournament.create(newTournament, (err, Tournament) =>{
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else{
+            res.redirect('/tournaments');
+        }
+    });
+
+    module.exports.displayEditPage = (req, res, next) => {
+        let id = req.params.id;
+    
+        Tournament.findById(id, (err, TournamentToEdit) => {
+            if(err)
+            {
+                console.log(err);
+                res.end(err);
+            }
+            else
+            {
+                res.render('tournament/edit', {title: "Edit Tournament", Tournament: TournamentToEdit});
+            }
+        })
+    }
+    
+    module.exports.processEditPage = (req, res, next) => {
+        let id = req.params.id;
+    
+        let updatedTournament = Tournament({
+            "Name": req.body.name,
+            "Organizer": req.body.organizer,
+            "Size": req.body.size,
+            "Date": req.body.date,
+            "Active": req.body.state,
+        });
+    
+        Tournament.updateOne({_id: id}, updatedTournament, (err) => {
+            if(err)
+            {
+                console.log(err);
+                res.end(err);
+            }
+            else
+            {
+                res.redirect('/tournaments');
+            }
+        });
+    }
+    
+    module.exports.performDelete = (req, res, next) => {
+        let id = req.params.id;
+    
+        Tournament.remove({_id: id}, (err) =>{
+            if(err)
+            {
+                console.log(err);
+                res.end(err);
+            }
+            else
+            {
+                res.redirect('/tournaments');
+            }
+        })
+    }
+    
 }
