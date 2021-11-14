@@ -31,16 +31,16 @@ router.get('/', tournament_listController.displayTournamentList);
 router.get('/add', tournament_listController.displayAddPage);
 
 //GET Route for processing the Add page - CREATE Operation
-router.get('/add', tournament_listController.processAddPage);
+router.post('/add', tournament_listController.processAddPage);
 
 //GET Route for displaying the Edit page - UPDATE Operation
 //router.get('/edit/:id', tournament_listController.displayEditPage);
 
 //POST Route for processing the Edit page - UPDATE Operation
-//router.post('/edit:id', tournament_listController.processEditPage);
+//router.post('/edit:id', tournament_listController.processEditPage); <- (Nick) I changed router.get to router.post (pretty sure that is what we are supposed to use here, did so for midterm + assignment and this was not a mistake for me).
 
 //GET Route to perform Deletion - DELETE Operation
-//router.post('/delete:id', tournament_listController.performDelete);
+//router.get('/delete:id', tournament_listController.performDelete); <- (Nick) I changed router.post to router.get (pretty sure that is what we are supposed to use here, did so for midterm + assignment and this was not a mistake for me).
 
 
 

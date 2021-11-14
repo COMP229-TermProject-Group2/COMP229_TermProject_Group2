@@ -95,7 +95,7 @@ module.exports.processAddPage = (req, res, next) => {
             {
                 res.redirect('/tournaments');
             }
-        })
+        });
     }
     
 }
