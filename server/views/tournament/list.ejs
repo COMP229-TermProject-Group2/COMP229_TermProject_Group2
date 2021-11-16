@@ -1,0 +1,34 @@
+<%- include ../partials/header.ejs %><%- include ../partials/main_nav.ejs %>
+<body>
+  <h1>Welcome to the <%= title %> page</h1>
+
+  <a href="/tournaments/add" class="btn btn-primary" role="button"
+    ><i class="fas fa-plus-circle"></i>Add a Tournament</a>
+  <br><br> <!-- Added these so the add button and table weren't so squat (Nick) -->
+  <table id="tournamentList">
+    <tr>
+      <th>Tournament Name</th>
+      <th>Organizer</th>
+      <th>Tournament Size</th>
+      <th>Tournament Date</th>
+      <th>Active Status<th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <!-- Repeatable Template Row (Nick)-->
+    <% for(let count = 0; count < TournamentList.length; count++) { %>
+      <tr>
+        <td><%= TournamentList[count].Name %></td>
+        <td><%= TournamentList[count].Organizer %></td>
+        <td><%= TournamentList[count].Size %></td>
+        <td><%= TournamentList[count].Date %></td>
+        <td><%= TournamentList[count].Active %></td>
+        <td><a href="/tournaments/edit/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Edit</a></td>
+        <td><a href="/tournaments/delete/<%= TournamentList[count]._id %>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i>Delete</a></td>
+      </tr>
+    <% } %>
+  </table>
+</body>
+
+<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
