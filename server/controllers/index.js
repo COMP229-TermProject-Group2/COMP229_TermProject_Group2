@@ -19,7 +19,7 @@ module.exports.displayLoginPage = (req, res, next) => {
         res.render('auth/login', 
         {
             title: "Login", 
-            message: req.flash('loginMessage'),
+            messages: req.flash('loginMessage'),
             displayName: req.user ? req.user.displayName : ''
         })
     } else {
@@ -75,10 +75,10 @@ module.exports.processRegisterPage = (req, res, next) => {
         if(err) {
             console.log("Error: Inserting New User");
             console.log(err);
-            if(err.name == "UserExistError") {
+            if(err.name == "UserExistsError") {
                 req.flash(
                     'registerMessage',
-                    'Registration Error: User Already Exist!'
+                    'Registration Error: User Already Exists!'
                 );
                 console.log('Error: User Already Exists!')
             }
