@@ -24,7 +24,7 @@ module.exports.processAddPage = (req, res, next) => {
         "Organizer": req.body.organizer,
         "Size": req.body.size,
         "Date": req.body.date,
-        "Active": req.body.state,
+        "Active": req.body.active,
     });
 
     Tournament.create(newTournament, (err, Tournament) =>{
@@ -63,7 +63,7 @@ module.exports.processEditPage = (req, res, next) => {
         "Organizer": req.body.organizer,
         "Size": req.body.size,
         "Date": req.body.date,
-        "Active": req.body.state,
+        "Active": req.body.active,
     });
     
     Tournament.updateOne({_id: id}, updatedTournament, (err) => {
