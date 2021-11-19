@@ -1,0 +1,193 @@
+/* rem and em do NOT depend on html font-size in media queries!
+Instead, 1rem = 1em = 16px */
+
+/********************************/
+/******* Below 1344px ***********/
+/****** Smaller Desktops ********/
+/********************************/
+
+@media (max-width: 84em) {
+  .hero-img-box {
+    max-width: 134rem;
+    max-height: 40vh;
+  }
+
+  .hero-title {
+    font-size: 5.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2.8rem;
+  }
+
+  .logo {
+    width: 40rem;
+  }
+
+  .main-nav {
+    font-size: 1.92rem;
+    width: 48rem;
+  }
+
+  .main-nav-list {
+    padding: 0.96rem;
+    gap: 0.4rem;
+  }
+}
+
+/********************************/
+/******* Below 1200px ***********/
+/****** Landscape Tablets *******/
+/********************************/
+
+@media (max-width: 75em) {
+  html {
+    /* 9px / 16px */
+    font-size: 56.25%;
+  }
+
+  .main-nav-link.nav-cta:link,
+  .main-nav-link.nav-cta:visited {
+    padding: 0.96rem 1.92rem;
+  }
+  .main-nav {
+    font-size: 1.68rem;
+    width: 42rem;
+  }
+
+  .main-nav-list {
+    gap: 0.3rem;
+    padding: 0.84rem;
+  }
+
+  .logo {
+    margin-left: 4.9rem;
+  }
+
+  .main-nav {
+    margin-right: 4.9rem;
+  }
+}
+
+/********************************/
+/******* Below 944px ************/
+/*********** Tablets ************/
+/********************************/
+
+@media (max-width: 59em) {
+  html {
+    /*8px / 16px = 0.5 */
+    font-size: 50%;
+  }
+
+  .hero-img-box {
+    max-height: 60vh;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.75rem;
+  }
+
+  .logo {
+    width: 35rem;
+  }
+
+  /* MOBILE NAVIGATION */
+
+  .btn-mobile-nav {
+    display: block;
+    z-index: 9999;
+  }
+
+  .main-nav {
+    background-color: black;
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in;
+
+    /*Hide Navigation*/
+    /* display: none; */
+    /* 1) Hide it visually */
+    opacity: 0;
+
+    /* 2) Make it unaccessible to mouse and keyboard */
+    pointer-events: none;
+
+    /* 3) Hide it from screen readers */
+    visibility: hidden;
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .nav-open .btn-mobile-nav {
+    display: relative;
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+    /* position: absolute;
+    top: 5rem;
+    right: 5rem; */
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 3rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3rem;
+  }
+}
+
+/********************************/
+/******* Below 704px ************/
+/******** Small Tablets *********/
+/********************************/
+
+@media (max-width: 44em) {
+}
+
+/********************************/
+/******* Below 544px ************/
+/*********** Phones *************/
+/********************************/
+
+@media (max-width: 34em) {
+  .section-hero {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+}
