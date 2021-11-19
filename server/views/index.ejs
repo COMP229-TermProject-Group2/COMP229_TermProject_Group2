@@ -1,7 +1,15 @@
-<%- include partials/header.ejs %><%- include partials/main_nav.ejs %>
-  <body>
-    <h1>Welcome to the <%= title %> page</h1>
-  </body>
+<%- include partials/header.ejs %>
+<body>
+  <section class="section-hero">
+    <div class="hero-img-box">
+      <div class="partials"><%- include partials/main_nav.ejs %></div>
+      <div class="text-box">
+        <h1 class="hero-title">Designed for Competitors</h1>
+        <h2 class="hero-subtitle">Hundreds of Tournaments</h2>
+      </div>
+    </div>
+  </section>
+  <h1>Welcome to the <%= title %> page</h1>
+</body>
 
 <%- include partials/bottom_nav.ejs %> <%- include partials/footer.ejs %>
-

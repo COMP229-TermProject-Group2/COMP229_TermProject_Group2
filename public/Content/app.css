@@ -1,14 +1,178 @@
 /* CSS code */
 
+/* Global reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 5rem;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
 }
-
-a {
+/* 
+a:hover {
   color: #00b7ff;
+} */
+
+/* MOBILE */
+
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  margin-right: 7rem;
 }
 
-.nav-item {
-  font-size: 24px;
+.icon-mobile-nav {
+  height: 7rem;
+  width: 4.8rem;
+  padding-top: 1.5rem;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+/********************************/
+/******* HERO SECTION ***********/
+/********************************/
+
+.logo {
+  width: 50rem;
+  margin-left: 7rem;
+}
+.section-hero {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-img-box {
+  background-image: url("/Assets/images/abstract-communication-technology-network-concept_34629-641.jpg");
+  /* max-height: 45rem; */
+  max-width: 250rem;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.banner {
+  background-color: #072338;
+  max-width: 250rem;
+  background-size: cover;
+  /* flex-direction: column; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-box {
+  text-align: center;
+  vertical-align: middle;
+  padding-bottom: 15rem;
+}
+
+.hero-title,
+.hero-subtitle {
+  color: #fff;
+  font-weight: 800;
+
+  margin: 0;
+  padding-top: 0;
+}
+
+.hero-title {
+  font-size: 7rem;
+}
+
+.hero-subtitle {
+  font-size: 3.5rem;
+}
+
+/********************************/
+/********** NAVIGATION***********/
+/********************************/
+
+.nav-container {
+  max-width: 200rem;
+  height: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 1.4 rem;
+  line-height: 1;
+  font-weight: 400;
+  /* padding-top: 3rem; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.main-nav {
+  width: 60rem;
+  background-color: #278ca1;
+  font-size: 2.4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 0;
+  border-radius: 5px;
+  margin-right: 7rem;
+}
+
+.main-nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  gap: 0.5rem;
+  color: #fff;
+  list-style: none;
+  padding: 1.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #9faab4;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 5px;
+  color: rgb(71, 70, 70);
+  background-color: #fff;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: #278ca1;
+  color: #fff;
 }
