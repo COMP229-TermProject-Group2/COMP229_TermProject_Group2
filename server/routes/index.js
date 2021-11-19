@@ -3,17 +3,12 @@ const router = express.Router();
 
 const indexController = require('../controllers/index');
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Landing Page" });
-});
 
 /* GET home page. */
-router.get("/home", function (req, res, next) {
-  res.render("index", { title: "Home" });
-});
+router.get('/', indexController.displayHomePage);
 
-
+/* GET home page. */
+router.get('/home', indexController.displayHomePage);
 
 
 //Authentication:
@@ -30,9 +25,9 @@ router.get('/register', indexController.displayRegisterPage);
 
 //POST route for processing the Register page
 router.post('/register', indexController.processRegisterPage);
-/*
+
 //GET to perform UserLogout
 router.get('/logout', indexController.performLogout);
-*/
+
 
 module.exports = router;

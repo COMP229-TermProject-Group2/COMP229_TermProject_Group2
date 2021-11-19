@@ -1,18 +1,25 @@
 const express = require("express");
-// const router = express.Router();
-// const mongoose = require("mongoose");
-// const passport = require("passport");
+const router = express.Router();
+const mongoose = require("mongoose");
+const passport = require("passport");
+
+const userModel = require("../models/users");
+const User = userModel.usersModel;
 
 
+module.exports.displayHomePage = (req, res, next) => {
+    res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName : '' });
+}
 
 /////////////////////I've made it to test the routes. can be deleted
 
 module.exports.displayLoginPage = (req, res, next) => {
+
     if (!req.user) {
         res.render('auth/login', 
         {
             title: "Login", 
-            //message: req.flash('loginMessage'),
+            message: req.flash('loginMessage'),
             displayName: req.user ? req.user.displayName : ''
         })
     } else {
@@ -38,7 +45,7 @@ module.exports.processLoginPage = (req, res, next) => {
             if (err) {
                 return next(err);
             }
-            return res.redirect('tournament_list');
+            return res.redirect('/tournaments');
         });
     })(req, res, next);
 }
@@ -48,7 +55,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
         res.render('auth/register',
         {
             title: 'Register',
-            //messages: req.flash('registerMessage'),
+            messages: req.flash('registerMessage'),
             displayName: req.user ? req.user.displayName : ''
         });
     } else {
@@ -58,9 +65,10 @@ module.exports.displayRegisterPage = (req, res, next) => {
 
 module.exports.processRegisterPage = (req, res, next) => {
     //instantiate an user object
-    let newUser = new User({
+    const newUser = new User({
         username: req.body.username,
         //password: req.body.password
+        displayName: req.body.displayName
     });
 
     User.register(newUser, req.body.password, (err) => {
@@ -80,13 +88,19 @@ module.exports.processRegisterPage = (req, res, next) => {
                 displayName: req.user ? req.user.displayName : ''              
             });
         } else {
-            // if no error exists, then registration is sucessfull
+            // if no error exists, then registration is successful
             //redirect the user and authentication them
             
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('/tournament_list')
+                res.redirect('/tournaments')
                 
             });
         }
     });
+    
+}
+
+module.exports.performLogout = (req, res, next) => {
+    req.logout();
+    res.redirect('/');
 }
