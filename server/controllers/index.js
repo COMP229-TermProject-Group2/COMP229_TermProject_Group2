@@ -11,7 +11,6 @@ module.exports.displayHomePage = (req, res, next) => {
     res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName : '' });
 }
 
-/////////////////////I've made it to test the routes. can be deleted
 
 module.exports.displayLoginPage = (req, res, next) => {
 
@@ -19,7 +18,11 @@ module.exports.displayLoginPage = (req, res, next) => {
         res.render('auth/login', 
         {
             title: "Login", 
+
             messages: req.flash('loginMessage'),
+
+            //message: req.flash('loginMessage'),
+
             displayName: req.user ? req.user.displayName : ''
         })
     } else {
@@ -45,7 +48,11 @@ module.exports.processLoginPage = (req, res, next) => {
             if (err) {
                 return next(err);
             }
+
             return res.redirect('/tournaments');
+
+            return res.redirect('tournament_list');
+
         });
     })(req, res, next);
 }
@@ -55,7 +62,11 @@ module.exports.displayRegisterPage = (req, res, next) => {
         res.render('auth/register',
         {
             title: 'Register',
+
             messages: req.flash('registerMessage'),
+
+            //messages: req.flash('registerMessage'),
+
             displayName: req.user ? req.user.displayName : ''
         });
     } else {
@@ -65,20 +76,31 @@ module.exports.displayRegisterPage = (req, res, next) => {
 
 module.exports.processRegisterPage = (req, res, next) => {
     //instantiate an user object
+
     const newUser = new User({
         username: req.body.username,
         //password: req.body.password
         displayName: req.body.displayName
+
+    let newUser = new User({
+        username: req.body.username,
+        //password: req.body.password
     });
 
     User.register(newUser, req.body.password, (err) => {
         if(err) {
             console.log("Error: Inserting New User");
             console.log(err);
+
             if(err.name == "UserExistsError") {
                 req.flash(
                     'registerMessage',
                     'Registration Error: User Already Exists!'
+
+            if(err.name == "UserExistError") {
+                req.flash(
+                    'registerMessage',
+                    'Registration Error: User Already Exist!'
                 );
                 console.log('Error: User Already Exists!')
             }
@@ -88,11 +110,18 @@ module.exports.processRegisterPage = (req, res, next) => {
                 displayName: req.user ? req.user.displayName : ''              
             });
         } else {
+
             // if no error exists, then registration is successful
             //redirect the user and authentication them
             
             return passport.authenticate('local')(req, res, () => {
                 res.redirect('/tournaments')
+
+            // if no error exists, then registration is sucessfull
+            //redirect the user and authentication them
+            
+            return passport.authenticate('local')(req, res, () => {
+                res.redirect('/tournament_list')
                 
             });
         }
@@ -104,3 +133,6 @@ module.exports.performLogout = (req, res, next) => {
     req.logout();
     res.redirect('/');
 }
+
+}
+
