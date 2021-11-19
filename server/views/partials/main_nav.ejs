@@ -14,6 +14,21 @@
       <li>
         <a class="main-nav-link nav-cta" href="/tournaments">Tournaments</a>
       </li>
+      <% if(typeof displayName == 'string' && displayName) { %>
+
+      <li>Welcome, <%= displayName %></li>
+      <li>
+        <a class="main-nav-link" href="/logout">
+          <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a
+        >
+      </li>
+      <%} else { %>
+      <li>
+        <a href="/login" class="main-nav-link">
+          <i class="fas fa-lg fa-sign-in-alt"></i> Login</a
+        >
+      </li>
+      <% } %>
     </ul>
   </nav>
   <button class="btn-mobile-nav">
