@@ -62,7 +62,7 @@ a:hover {
 }
 
 .hero-img-box {
-  background-image: url("/Assets/images/abstract-communication-technology-network-concept_34629-641.jpg");
+  background-image: url("/Assets/images/banner-image.jpg");
   /* max-height: 45rem; */
   max-width: 250rem;
   background-size: cover;
@@ -74,7 +74,7 @@ a:hover {
 }
 
 .banner {
-  background-color: #072338;
+  background-color: #002046;
   max-width: 250rem;
   background-size: cover;
   /* flex-direction: column; */
@@ -91,7 +91,6 @@ a:hover {
 .hero-title,
 .hero-subtitle {
   color: #fff;
-  font-weight: 800;
 
   margin: 0;
   padding-top: 0;
@@ -99,14 +98,16 @@ a:hover {
 
 .hero-title {
   font-size: 7rem;
+  font-weight: 800;
 }
 
 .hero-subtitle {
   font-size: 3.5rem;
+  font-weight: 400;
 }
 
 /********************************/
-/********** NAVIGATION***********/
+/********** NAVIGATION **********/
 /********************************/
 
 .nav-container {
@@ -129,7 +130,7 @@ a:hover {
 
 .main-nav {
   max-width: 100rem;
-  background-color: #278ca1;
+  background-color: #0388e3;
   font-size: 2.4rem;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -143,10 +144,13 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0;
-  gap: 1.5rem;
+  gap: 2.5rem;
   color: #fff;
   list-style: none;
-  padding: 1.2rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  padding-left: 2.2rem;
+  padding-right: 2.2rem;
 }
 
 .main-nav-link:link,
@@ -173,6 +177,28 @@ a:hover {
 
 .main-nav-link.nav-cta:hover,
 .main-nav-link.nav-cta:active {
-  background-color: #278ca1;
+  background-color: #002046;
   color: #fff;
+}
+
+/********************************/
+/********** BOTTOM NAV **********/
+/********************************/
+
+.copyright-bar {
+  position: absolute;
+  bottom: 0;
+  max-width: 250rem;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #020e17;
+  text-align: center;
+}
+
+.navbar-text {
+  color: #fff;
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
