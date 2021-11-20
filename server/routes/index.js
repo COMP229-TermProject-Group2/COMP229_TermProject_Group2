@@ -21,7 +21,7 @@ router.get("/home", function (req, res, next) {
 router.get('/login', indexController.displayLoginPage);
 
 //GET Route for processing the Login page
-router.post('/login', indexController.processRegisterPage);
+router.post('/login', indexController.processLoginPage);
 
 //GET Route for processing the Register page
 router.get('/register', indexController.displayRegisterPage);
