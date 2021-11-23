@@ -9,7 +9,43 @@
       </div>
     </div>
   </section>
-  <h1>Welcome to the <%= title %> page</h1>
+
+  <section class="section-about generic-container grid grid--2-cols">
+    <div class="about-image"><a href="/tournaments"><img src="Assets/images/arena1-01.jpg" style="width:30rem"></a></div>
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Arena 229</h2>
+          <h3>A Place for friends</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat.</p>
+          <a class="button-about" href="#">Read More</a>
+        </div>
+    </div>
+  </section>
+
+  <section class ="section-popular">
+    <div class="container-popular">
+      <div class="popular-header">
+        <h2>Popular Tournaments</h2>
+        <h3>Pick yours</h3>
+      </div>
+      <div class="popular-images popular-grid grid--6-cols">
+        <a href="/tournaments"><img src="/Assets/images/image-0.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-1.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-2.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-4.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-5.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-6.jpeg"/></a>
+      </div>
+    </div>
+  </section>
+
+
+
 </body>
+
+
 
 <%- include partials/bottom_nav.ejs %> <%- include partials/footer.ejs %>
