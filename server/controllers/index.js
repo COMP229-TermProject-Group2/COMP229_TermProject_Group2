@@ -48,7 +48,7 @@ module.exports.processLoginPage = (req, res, next) => {
 
       return res.redirect("/tournaments");
 
-      //   return res.redirect("tournament_list");
+      //return res.redirect("tournament_list");
     });
   })(req, res, next);
 };
