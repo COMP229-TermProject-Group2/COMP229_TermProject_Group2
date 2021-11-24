@@ -433,3 +433,50 @@ a:hover {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+
+/********************************/
+/******** Tournament List *******/
+/********************************/
+
+.table-container {
+  margin: 6rem auto;
+}
+
+.tournaments-title {
+  font-size: 3.5rem;
+  color: #555555;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.header-format {
+  font-size: 1.6rem;
+  color: #555555;
+  font-weight: 400;
+  /* background-color: #002045;
+  color: #fff; */
+}
+
+.btn {
+  display: inline-block;
+  font-size: 1.4rem;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.btn-primary {
+  background-color: #0488e2;
+}
+
+.btn-primary:hover {
+  background-color: #002045;
+}
+
+.btn-danger:hover,
+.btn-danger:active {
+  background-color: #fff;
+  color: #dc3544;
+}
