@@ -65,7 +65,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
       displayName: req.user ? req.user.displayName : "",
     });
   } else {
-    res.redirect("/");
+    return res.redirect("/");
   }
 };
 
