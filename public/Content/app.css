@@ -465,7 +465,7 @@ a:hover {
 .btn {
   display: inline-block;
   font-size: 1.4rem;
-  padding: 1rem;
+  padding: 0.9rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
