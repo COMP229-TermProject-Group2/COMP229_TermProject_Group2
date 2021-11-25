@@ -4,16 +4,11 @@ const router = express.Router();
 const indexController = require("../controllers/index");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Landing Page" });
-});
+router.get('/', indexController.displayHomePage);
 
 /* GET home page. */
-router.get("/home", function (req, res, next) {
-  res.render("index", { title: "Home" });
-});
+router.get('/home', indexController.displayHomePage);
 
-//Authentication:
 //GET Route for processing the login page
 router.get("/login", indexController.displayLoginPage);
 
