@@ -113,7 +113,7 @@ a:hover {
 
 .nav-container {
   max-width: 200rem;
-  height: 25rem;
+  min-height: 25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -533,6 +533,10 @@ a:hover {
   margin: 1rem auto;
 }
 
+.form-group input {
+  font-size: 1.4rem;
+}
+
 #register-here {
   margin-top: 2rem;
   margin-bottom: 3rem;
@@ -564,7 +568,7 @@ a:hover {
 }
 
 .row {
-  padding: 5rem;
+  padding: 3rem;
   flex-direction: column;
   justify-content: center;
 }
@@ -586,5 +590,65 @@ a:hover {
 }
 
 .last-input {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+
+/********************************/
+/******* Add a Tournament *******/
+/********************************/
+
+.add-container {
+  min-height: 40%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.add-content {
+  padding: 2rem 3rem;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.add-content input {
+  margin-bottom: 1rem;
+}
+
+.row {
+  padding: 3.5rem 0;
+}
+
+.add-banner {
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+  position: relative;
+  padding-left: 15%;
+  min-height: 41.2%;
+  background-image: url("/Assets/images/add-banner-1.jpg");
+  background-position-x: center;
+  background-position-y: 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+
+.add-message {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+}
+
+.add-banner:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgb(0, 32, 70);
+  opacity: 0.5;
 }
