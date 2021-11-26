@@ -13,6 +13,13 @@ module.exports.displayHomePage = (req, res, next) => {
   });
 };
 
+module.exports.displayAboutPage = (req, res, next) => {
+  res.render("about", {
+    title: "About Arena 229",
+    displayName: req.user ? req.user.displayName : "",
+  });
+};
+
 module.exports.displayLoginPage = (req, res, next) => {
   if (!req.user) {
     res.render("auth/login", {
