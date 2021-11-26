@@ -1,38 +1,46 @@
 <%- include ../partials/header.ejs %>
+
   <header class="banner">
   <%- include ../partials/main_nav.ejs %>
   </header>
-    <h1>Welcome to the <%= title %> page</h1>
-  </body>
+  
 <!-- content for the create page -->
-<div class="container">
+<div class="container add-container">
     <div class="row" style="color: black;">
-        <div class="offset-md-2 col-md-8">
+        <div class="offset-md-2 col-md-8 add-content">
             <form class="form" method="post">
                 <div class="form-group">
+                    <p>
                     <label for="nameTextField">Name</label>
+                    </p>
                     <input type="text" class="form-control"
                         id="nameTextField"
                         placeholder="Enter The Tournament's Name"
                         name="name" required>
                 </div>
                 <div class="form-group">
+                    <p>
                     <label for="organizerTextField">Organizer:</label>
+                    </p>
                     <input type="text" class="form-control"
                         id="organizerTextField"
                         placeholder="Enter The Tournament's Organizer"
                         name="organizer" required>
                 </div>
                 <div class="form-group">
+                    <p>
                     <label for="sizeTextField">Size:</label>
+                    </p>
                     <input type="text" class="form-control"
                         id="sizeTextField"
                         placeholder="Enter The Tournament's Size"
                         name="size" required>
                 </div>
                 <div class="form-group">
+                    <p>
                     <label for="dateTextField">Date:</label>
-                    <input type="text" class="form-control"
+                    </p>
+                    <input type="date" class="form-control"
                         id="dateTextField"
                         placeholder="Enter The Tournament's Date"
                         name="date" required>
@@ -45,7 +53,7 @@
                         value="true" required>
                         <label for="true">True</label>
                 </div>
-                <div class="form-group">
+                <div class="form-group last-input">
                     <input type="radio"
                         id="false"
                         name="active" 
@@ -62,4 +70,8 @@
         </div>
     </div>
 </div>
-<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
+<div class="add-banner">
+    <div class="add-message">
+        <h1 class="hero-title">Game On!</h1>
+    </div>
+</div>
