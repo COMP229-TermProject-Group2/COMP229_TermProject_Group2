@@ -4,10 +4,10 @@ const router = express.Router();
 const indexController = require("../controllers/index");
 
 /* GET home page. */
-router.get('/', indexController.displayHomePage);
+router.get("/", indexController.displayHomePage);
 
 /* GET home page. */
-router.get('/home', indexController.displayHomePage);
+router.get("/home", indexController.displayHomePage);
 
 /* GET about page. */
 router.get('/about', indexController.displayAboutPage);
@@ -26,5 +26,8 @@ router.post("/register", indexController.processRegisterPage);
 
 //GET to perform UserLogout
 router.get("/logout", indexController.performLogout);
+
+/* GET Contact Us page. */
+router.get("/contact", indexController.displayContactPage);
 
 module.exports = router;

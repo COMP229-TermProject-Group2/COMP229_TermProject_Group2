@@ -652,3 +652,190 @@ a:hover {
   background: rgb(0, 32, 70);
   opacity: 0.5;
 }
+
+/********************************/
+/******* Edit a Tournament ******/
+/********************************/
+
+.edit-container {
+  height: 60%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.edit-content {
+  padding: 2rem 3rem;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.edit-content input {
+  margin-bottom: 2rem;
+}
+
+.edit-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  width: 45%;
+}
+
+.edit-confirm {
+  flex-shrink: 0;
+  flex-grow: 1;
+  flex-basis: auto;
+}
+
+.cancel-delete-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/********************************/
+/********* Contact Form *********/
+/********************************/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+.contact {
+  flex-direction: column;
+  min-height: 80%;
+  display: flex;
+  justify-content: start;
+  padding: 3rem 0;
+  background: linear-gradient(#002046, #020f17);
+  padding-top: 30px;
+}
+
+.contact-container {
+  padding: 3rem 0;
+}
+
+.contact-title {
+  color: #fff;
+  margin: 0;
+  padding-top: 0;
+  font-size: 6rem;
+  font-weight: 800;
+}
+
+.contact-media {
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Abel", sans-serif;
+}
+
+#contact {
+  background: #f9f9f9;
+  padding: 2rem;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+}
+
+#contact h3 {
+  color: #505050;
+  display: block;
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 1rem;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  margin: 0 0 0.5rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#contact textarea {
+  height: 10rem;
+  max-width: 100%;
+  resize: none;
+}
+
+.send-button {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: #fff;
+  background-color: #0388e3;
+  padding: 2rem 4rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.send-button:hover {
+  color: #fff;
+  background-color: #002045;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #999;
+}
+::-webkit-input-placeholder {
+  color: #888;
+}
+:-moz-placeholder {
+  color: #888;
+}
+::-moz-placeholder {
+  color: #888;
+}
+:-ms-input-placeholder {
+  color: #888;
+}
+
+/********************************/
+/************ About *************/
+/********************************/
+
+.section-about {
+  min-height: 52%;
+}
