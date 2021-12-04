@@ -29,6 +29,7 @@ module.exports.processAddPage = (req, res, next) => {
   let newTournament = Tournament({
     Name: req.body.name,
     Organizer: req.body.organizer,
+    Description: req.body.description,
     Size: req.body.size,
     Date: req.body.date,
     Active: req.body.active,
@@ -67,6 +68,7 @@ module.exports.processEditPage = (req, res, next) => {
     _id: id,
     Name: req.body.name,
     Organizer: req.body.organizer,
+    Description: req.body.description,
     Size: req.body.size,
     Date: req.body.date,
     Active: req.body.active,

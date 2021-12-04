@@ -4,6 +4,7 @@ const tournamentModel = mongoose.Schema(
   {
     Name: String,
     Organizer: String,
+    Description: String,
     Size: Number,
     Date: String,
     Active: Boolean
