@@ -28,10 +28,4 @@ router.post('/edit/:id', requireAuth, tournament_listController.processEditPage)
 //GET Route to perform Deletion - DELETE Operation
 router.get('/delete/:id', requireAuth, tournament_listController.performDelete);
 
-
-
-
-
-
-
 module.exports = router;
