@@ -1,0 +1,45 @@
+<%- include ../partials/header.ejs %>
+<body>
+<div class="tournament-container">
+<% if(typeof Organizer == 'string' && Organizer==username) { %>
+<div class="welcome-owner">
+  <p>Welcome, <%=Organizer%> </p>
+</div>
+ <% } %>
+  <div class="tournament-headers">
+    <div>
+      <h3>Round of</h3><p id="tournament-size"><%= Tournament.Size %></p>
+    </div>
+    <h3>Quarter-Finals</h3>
+    <h3>Semi-Finals</h3>
+    <h3>Final</h3>
+    <h3>Winner</h3>
+  </div>
+
+  <div class="tournament-brackets">
+    <ul class="bracket bracket-1">
+    </ul>
+    <ul class="bracket bracket-2">
+    </ul>
+    <ul class="bracket bracket-3">
+      <li class="team-item">SF1 <time>20:00</time> SF2</li>
+      <li class="team-item">SF3 <time>20:00</time> SF4</li>
+    </ul>
+    <ul class="bracket bracket-4">
+      <li class="team-item">F1 <time>20:00</time> F2</li>
+    </ul>
+
+    <ul class="bracket bracket-5">
+      <li class="team-item">European Champions</li>
+    </ul>
+  </div>
+</div>
+
+<%= Tournament %>
+
+<!-- Script Section -->
+ <script src="/jquery/dist/jquery.min.js"></script>
+ <script src="/popper.js/dist/umd/popper.min.js"></script>
+ <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+ <script src="/Scripts/brackets.js"></script>
+</body>
