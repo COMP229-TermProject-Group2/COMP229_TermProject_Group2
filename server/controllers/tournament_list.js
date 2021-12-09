@@ -96,3 +96,22 @@ module.exports.performDelete = (req, res, next) => {
     }
   });
 };
+
+module.exports.displayBrackets = (req, res, next) => {
+  let id = req.params.id;
+
+  Tournament.findById(id, (err, TournamentBrackets) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.render("tournament/brackets", {
+        title: "Tournament Brackets",
+        displayName: req.user ? req.user.displayName : "",
+        username: req.user ? req.user.username.toLowerCase() : "",
+        Tournament: TournamentBrackets,
+        Organizer: TournamentBrackets.Organizer.toLowerCase(),
+      });
+    }
+  });
+};

@@ -30,7 +30,7 @@
 
           <!-- Repeatable Template Row (Nick)-->
           <% for(let count = 0; count < TournamentList.length; count++) { %>
-            <tr>
+            <tr class='clickable-row active' data-href='/tournaments/brackets/<%= TournamentList[count]._id %>'>
               <td class="col-2 align-middle"><%= TournamentList[count].Name %></td>
               <td class="col-2 align-middle"><%= TournamentList[count].Organizer %></td>
               <td class="col-2 align-middle"><%= TournamentList[count].Description %></td>

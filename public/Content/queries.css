@@ -26,12 +26,12 @@ Instead, 1rem = 1em = 16px */
 
   .main-nav {
     font-size: 1.92rem;
-    width: 48rem;
+    max-width: 62rem;
   }
 
   .main-nav-list {
     padding: 0.96rem;
-    gap: 0.4rem;
+    gap: 1.5rem;
   }
 }
 
