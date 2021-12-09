@@ -7,7 +7,8 @@ const tournamentModel = mongoose.Schema(
     Description: String,
     Size: Number,
     Date: String,
-    Active: Boolean
+    Active: Boolean,
+    Players: Array
   },
   {
     collection: "tournaments",
