@@ -17,17 +17,11 @@ tournamentHeaders = document.querySelector(".tournament-headers");
 let listItem = null;
 let playerContainer = null;
 let nBrackets = null;
-let winners = null;
+let winnersNodeList = null;
+let winnersArray = [];
+const tournamentWinner = document.getElementById("tournamentWinner");
 
 /////////////////////////////////////////////////////////////////////////////////
-let updateButton = document.getElementById("updateButton");
-updateButton.addEventListener("click", (event) => {
-  if (nPlayers != registeredPlayers.length) {
-    window.alert('Cannot begin tournament.\nNot enough players registered.');
-    event.preventDefault();
-  }
-});
-
 
 //Set headers according to the number of Rounds
 function buildHeaders() {
@@ -154,7 +148,6 @@ function buildFifthRound() {
 }
 //Create champion tag
 function buildChampion() {
-  console.log("Number of Brackets: ", nBrackets);
   const lastBracket = document.getElementsByClassName("bracket")[nBrackets - 1];
 
   lastBracket.innerHTML = "";
@@ -211,7 +204,7 @@ function populatePlayers(listOfPlayers) {
     (registeredPlayers.length > nPlayers ? nPlayers : registeredPlayers.length);
     i++
   ) {
-    console.log("Registered Players Length: ", registeredPlayers.length);
+    // console.log("Registered Players Length: ", registeredPlayers.length);
     players[i].innerHTML = registeredPlayers[i];
     if (organizer !== "" && registeredPlayers[i] !== "") {
       anchor[i + 1].className = "select-winner";
@@ -249,13 +242,11 @@ $(document).on("click", ".select-winner", function (e) {
     e.target.classList.toggle("winner");
     console.log(e.target.querySelector(".players").innerHTML);
   }
-  console.log($(this.parentElement).index());
-  populateNextBracket(e.target);
 
-  winners = document.querySelectorAll(".winner");
-  for (let i = 0; i < winners.length; ++i) {
-    console.log(winners.innerHTML);
-  }
+  winnersArray.push(e.target.querySelector(".players").innerHTML);
+  tournamentWinner.setAttribute("value", winnersArray);
+
+  populateNextBracket(e.target);
 });
 
 //start building the page
@@ -272,7 +263,6 @@ function buildRounds() {
 
 if (organizer) {
   let updateButton = document.getElementById("updateButton");
-  console.log(updateButton);
 
   updateButton.addEventListener("click", (event) => {
     if (nPlayers != registeredPlayers.length) {
@@ -281,9 +271,6 @@ if (organizer) {
       event.preventDefault();
     }
   });
-
-  winners = document.querySelectorAll(".winner");
-  console.log(winners);
 }
 
 window.addEventListener("load", buildRounds, false);

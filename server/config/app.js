@@ -5,11 +5,11 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
 // designated space for authentication modules (not for first release)
-const session = require('express-session');
-const passport = require('passport');
-const passportLocal = require('passport-local');
+const session = require("express-session");
+const passport = require("passport");
+const passportLocal = require("passport-local");
 const localStrategy = passportLocal.Strategy;
-const flash = require('connect-flash');
+const flash = require("connect-flash");
 
 // designated space for database setup
 const mongoose = require("mongoose");
@@ -26,6 +26,7 @@ mongoDB.once("open", () => {
 const indexRouter = require("../routes/index");
 const usersRouter = require("../routes/users");
 const tournamentRouter = require("../routes/tournaments");
+const bracketsRouter = require("../routes/brackets");
 
 const app = express();
 
@@ -41,11 +42,13 @@ app.use(express.static(path.join(__dirname, "../../public")));
 app.use(express.static(path.join(__dirname, "../../node_modules")));
 
 //Setup express session
-app.use(session({
-  secret: "SomeSecret",
-  saveUninitialized: false,
-  resave: false
-}))
+app.use(
+  session({
+    secret: "SomeSecret",
+    saveUninitialized: false,
+    resave: false,
+  })
+);
 
 //Instialize Flash
 app.use(flash());
@@ -55,7 +58,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //Create a user model instance
-const userModel = require('../models/users');
+const userModel = require("../models/users");
 const User = userModel.usersModel;
 
 //Implement a User Authentication Strategy
@@ -68,6 +71,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/tournaments", tournamentRouter);
+app.use("/brackets", bracketsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
