@@ -42,6 +42,9 @@ const organizer = jQuery.isEmptyObject(
   ? ""
   : document.getElementsByTagName("p")[0].innerHTML.slice(9);
 
+const registeredPlayers = document
+  .querySelector("#registeredPlayers")
+  .innerHTML.split(",");
 tournamentBrackets = document.querySelector(".tournament-brackets");
 tournamentHeaders = document.querySelector(".tournament-headers");
 let listItem = null;
@@ -52,6 +55,8 @@ let nBrackets = null;
 
 function buildHeaders() {
   nBrackets = getBaseLog(2, parseInt(nPlayers)) + 1;
+
+  console.log(registeredPlayers);
 
   for (let i = 1; i < nBrackets; i++) {
     header = document.createElement("h3");
@@ -107,7 +112,7 @@ function buildFirstRound() {
 
     populateLi();
   }
-  populatePlayers(listOfPlayers);
+  populatePlayers(registeredPlayers);
 }
 
 function buildSecondRound() {
@@ -182,7 +187,7 @@ function buildChampion() {
     let anchor = document.createElement("a");
     listItem.appendChild(anchor);
     anchor.href = "#";
-    anchor.className = "select-winner";
+    anchor.className = "select-winner winner";
     playerContainer = document.createElement("p");
     playerContainer.className = "players";
     anchor.appendChild(playerContainer);
@@ -218,8 +223,8 @@ function populateLi() {
 function populatePlayers(listOfPlayers) {
   const players = document.getElementsByClassName("players");
 
-  for (let i = 0; i < nPlayers; ++i) {
-    players[i].innerHTML = listOfPlayers[i];
+  for (let i = 0; i < registeredPlayers.length; i++) {
+    players[i].innerHTML = registeredPlayers[i];
   }
 }
 

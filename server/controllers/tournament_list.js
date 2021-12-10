@@ -113,6 +113,7 @@ module.exports.displayBrackets = (req, res, next) => {
         username: req.user ? req.user.username.toLowerCase() : "",
         Tournament: TournamentBrackets,
         Organizer: TournamentBrackets.Organizer.toLowerCase(),
+        Players: TournamentBrackets.Players,
       });
     }
   });
@@ -133,17 +134,21 @@ module.exports.displayRegisterPlayers = (req, res, next) => {
       });
     }
   });
-}
+};
 
 module.exports.processRegisterPlayers = (req, res, next) => {
   let id = req.params.id;
 
-  Tournament.findOneAndUpdate({_id: id }, {$push: {Players: req.body.players}}, (err) => {
-    if(err) {
-      console.log(err);
-      res.end(err);
-    } else {
-      res.redirect("/tournaments");
+  Tournament.findOneAndUpdate(
+    { _id: id },
+    { $push: { Players: req.body.players } },
+    (err) => {
+      if (err) {
+        console.log(err);
+        res.end(err);
+      } else {
+        res.redirect("/tournaments");
+      }
     }
-  });
-}
+  );
+};

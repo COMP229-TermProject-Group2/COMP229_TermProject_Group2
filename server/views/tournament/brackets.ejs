@@ -6,23 +6,25 @@
       <p>Welcome, <%=Organizer%></p>
     </div>
     <% } %>
+    <div class = "update-tournament-button">
+      <a class = "updateTournament" href=/tournaments/updateBrackets/<%=Tournament._id%>>Update Tournament</a>
+    </div>
     <div class="tournament-headers">
       <div>
         <h3>Round of</h3>
         <p id="tournament-size"><%= Tournament.Size %></p>
       </div>
-      <!-- <h3>Quarter-Finals</h3>
-      <h3>Semi-Finals</h3>
-      <h3>Final</h3>
-      <h3>Winner</h3> -->
+      <!-- Headers -->
     </div>
 
     <div class="tournament-brackets">
       <!--Tournament Lists-->
     </div>
   </div>
-
-  <%= Tournament %>
+  
+  <div class="listOfPLayers">
+    <span id="registeredPlayers"> <%= Tournament.Players %> </span>
+  </div>
 
   <!-- Script Section -->
   <script src="/jquery/dist/jquery.min.js"></script>
