@@ -38,9 +38,11 @@
               <td class="text-center align-middle col-2"><%= TournamentList[count].Size %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Date %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Active %></td>
-              <% if(TournamentList[count].Active == true) { %>
-                <td class="text-center col-1"><a href="/tournaments/registerPlayer/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Register</a></td>
-                <% } %>
+            <% if((TournamentList[count].Active == true) && (TournamentList[count].Players.length < TournamentList[count].Size)) { %>
+              <td class="text-center col-1"><a href="/tournaments/registerPlayer/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Register</a></td>
+            <% } else { %>
+              <td class="text-center col-1">Full</td>
+            <% } %>
               <% if(typeof displayName == 'string' && displayName) { %>
               <td class="text-center col-1">
                 <% if(TournamentList[count].Organizer == username) { %>
@@ -53,7 +55,6 @@
                 <% } %>
               </td>        
             <% } %>
-            
             </tr>
           <% } %>
         </table>

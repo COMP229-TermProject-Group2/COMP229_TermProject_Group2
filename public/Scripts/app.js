@@ -29,7 +29,6 @@ btnNavEl.addEventListener("click", () => {
 });
 
 // Make Tournaments' table rows clickable
-
 jQuery(document).ready(function ($) {
   $(".clickable-row").click(function () {
     window.location = $(this).data("href");
