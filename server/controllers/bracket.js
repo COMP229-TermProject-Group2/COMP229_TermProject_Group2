@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const Bracket = require("../models/bracket");
+const Bracket = require("../models/brackets");
 
 module.exports.processWinners = (req, res, next) => {
   let id = req.params.id;
