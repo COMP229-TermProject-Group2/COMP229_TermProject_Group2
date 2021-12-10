@@ -39,4 +39,11 @@ router.get(
   tournament_listController.displayBrackets
 );
 
+//GET Route for displaying the Register Players page
+router.get("/registerPlayer/:id", tournament_listController.displayRegisterPlayers);
+
+
+//POST Route for processing the Register Players page
+router.post("/registerPlayer/:id", tournament_listController.processRegisterPlayers);
+
 module.exports = router;

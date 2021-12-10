@@ -8,7 +8,8 @@ const bracketModel = mongoose.Schema(
     Name: String,
     Organizer: String,
     Size: Number,
-    Active: Boolean
+    Active: Boolean,
+    Players: Array
   },
   {
     collection: "brackets",

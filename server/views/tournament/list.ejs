@@ -26,6 +26,7 @@
             <th class="text-center col-1"></th>
             <th class="text-center col-1"></th>
              <% } %>
+            <th class="text-center col-2">Register for a Tournament</th>
           </tr>
 
           <!-- Repeatable Template Row (Nick)-->
@@ -40,6 +41,9 @@
               <% if(typeof displayName == 'string' && displayName) { %>
               <td class="text-center col-1"><a href="/tournaments/edit/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit</a></td>
               <td class="text-center col-1"><a href="/tournaments/delete/<%= TournamentList[count]._id %>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a></td>
+            <% } %>
+            <% if(TournamentList[count].Active == true) { %>
+            <td class="text-center col-1"><a href="/tournaments/registerPlayer/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Register</a></td>
             <% } %>
             </tr>
           <% } %>

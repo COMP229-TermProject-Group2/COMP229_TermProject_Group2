@@ -1,0 +1,36 @@
+<%- include ../partials/header.ejs %>
+  <body>
+  <header class="banner">
+    <%- include ../partials/main_nav.ejs %>
+  </header>
+
+<div class="container edit-container">
+    <div class="row" style="color: black;">
+        <div class="offset-md-2 col-md-8 edit-content">
+            <form class="form" method="post">
+                <div class="form-group">
+                <p>
+                    <label for="playerTextField">Player Name:</label>
+                </p>
+                    <input type="text" class="form-control"
+                        id="playerTextField"
+                        placeholder="Enter your player name"
+                        name="players" 
+                        required>
+                </div>
+                <div class="edit-buttons">
+                    <button class="btn btn-primary edit-confirm" type="submit">
+                        <i class="fas fa-edit"></i> Register for Tournament
+                    </button>
+                    <div class="cancel-delete-buttons">
+                    <a href="/tournaments" class="btn btn-warning">
+                        <i class="fas fa-undo"></i> Cancel Changes
+                    </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
