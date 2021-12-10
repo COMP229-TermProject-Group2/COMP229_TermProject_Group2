@@ -17,6 +17,7 @@ tournamentHeaders = document.querySelector(".tournament-headers");
 let listItem = null;
 let playerContainer = null;
 let nBrackets = null;
+let winners = null;
 
 /////////////////////////////////////////////////////////////////////////////////
 let updateButton = document.getElementById("updateButton");
@@ -32,7 +33,7 @@ updateButton.addEventListener("click", (event) => {
 function buildHeaders() {
   nBrackets = getBaseLog(2, parseInt(nPlayers)) + 1;
 
-  console.log(registeredPlayers);
+  // console.log(registeredPlayers);
 
   for (let i = 1; i < nBrackets; i++) {
     header = document.createElement("h3");
@@ -250,6 +251,11 @@ $(document).on("click", ".select-winner", function (e) {
   }
   console.log($(this.parentElement).index());
   populateNextBracket(e.target);
+
+  winners = document.querySelectorAll(".winner");
+  for (let i = 0; i < winners.length; ++i) {
+    console.log(winners.innerHTML);
+  }
 });
 
 //start building the page
@@ -262,6 +268,22 @@ function buildRounds() {
   buildFourthRound();
   buildFifthRound();
   buildChampion();
+}
+
+if (organizer) {
+  let updateButton = document.getElementById("updateButton");
+  console.log(updateButton);
+
+  updateButton.addEventListener("click", (event) => {
+    if (nPlayers != registeredPlayers.length) {
+      window.alert("Cannot begin tournament.\nNot enough players registered.");
+
+      event.preventDefault();
+    }
+  });
+
+  winners = document.querySelectorAll(".winner");
+  console.log(winners);
 }
 
 window.addEventListener("load", buildRounds, false);
