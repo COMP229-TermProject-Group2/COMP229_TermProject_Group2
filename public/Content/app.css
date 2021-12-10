@@ -180,6 +180,9 @@ a:hover {
   background-color: #002046;
   color: #fff;
 }
+.display-name {
+  font: 12px Arial, sans-serif;
+}
 
 /********************************/
 /******* ABOUT SECTION **********/
@@ -570,6 +573,7 @@ a:hover {
   flex-direction: column;
   align-content: center;
   justify-content: start;
+  margin-bottom: 12rem;
 }
 
 .row {
@@ -669,6 +673,7 @@ a:hover {
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  margin: 10rem;
 }
 .edit-content {
   padding: 2rem 3rem;

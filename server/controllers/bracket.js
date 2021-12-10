@@ -3,14 +3,14 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const Bracket = require("../models/brackets");
+const Tournament = require("../models/tournament");
 
 module.exports.processWinners = (req, res, next) => {
   let id = req.params.id;
 
   Tournament.updateMany(
-    // { _id: id },
-    // { $push: { Players: req.body.players } },
+    { _id: id },
+    { $push: { Winners: req.body.winners } },
     (err) => {
       if (err) {
         console.log(err);
