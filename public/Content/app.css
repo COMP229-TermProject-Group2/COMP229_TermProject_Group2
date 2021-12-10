@@ -853,6 +853,14 @@ a:hover {
   font-weight: 400;
 }
 
+.welcome-to-tournament h3 {
+  text-align: center;
+  margin: 3rem 0;
+  text-transform: capitalize;
+  font-size: 3rem !important;
+  font-weight: 400;
+}
+
 #tournament-size {
   display: inline;
   margin-left: 1rem;
@@ -864,14 +872,17 @@ a:hover {
 
 .team-item a {
   flex: 1 1 auto;
+  background-color: #888;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
 }
 
 .team-item a p {
   margin: 0;
 }
 
-.team-item a:link,
-.team-item a:visited {
+.team-item .select-winner:link,
+.team-item .select-winner:visited {
   border: none;
   text-decoration: none;
   background-color: #888;
@@ -885,22 +896,27 @@ a:hover {
   margin: 0;
 }
 
-.team-item a:hover,
-.team-item a:active {
+.team-item .select-winner:hover,
+.team-item .select-winner:active {
   background-color: #27a300;
   color: #fff;
   transition: all 0.3s;
 }
 
-.team-item a:hover p {
+.team-item .select-winner:hover p {
   display: none;
 }
 
-.team-item a:hover:before {
+.team-item .select-winner:hover:before {
   content: "Winner!";
 }
 
 .winner {
+  background-color: #27a300 !important;
+  color: #fff;
+}
+
+#winner {
   background-color: #27a300 !important;
   color: #fff;
 }

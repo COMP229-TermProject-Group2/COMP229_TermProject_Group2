@@ -1,14 +1,25 @@
 <%- include ../partials/header.ejs %>
 <body>
+  <% if(Organizer!=username) { %>
+    <header class="banner">
+    <%- include ../partials/main_nav.ejs %>
+</header>
+  <%}%>
   <div class="tournament-container">
     <% if(typeof Organizer == 'string' && Organizer==username) { %>
     <div class="welcome-owner">
       <p>Welcome, <%=Organizer%></p>
+      <h4>Tournament: <%=Tournament.Name %></h4>
     </div>
-    <% } %>
     <div class = "update-tournament-button">
       <a class = "updateTournament" href=/tournaments/updateBrackets/<%=Tournament._id%>>Update Tournament</a>
     </div>
+    <% } else { %>
+      <div class="welcome-to-tournament">
+      <h3>Welcome to <%=Tournament.Name%></h3>
+    </div>
+    <% } %>
+
     <div class="tournament-headers">
       <div>
         <h3>Round of</h3>
@@ -21,7 +32,7 @@
       <!--Tournament Lists-->
     </div>
   </div>
-  
+
   <div class="listOfPLayers">
     <span id="registeredPlayers"> <%= Tournament.Players %> </span>
   </div>
@@ -32,3 +43,4 @@
   <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="/Scripts/brackets.js"></script>
 </body>
+<%- include ../partials/bottom_nav.ejs %>
