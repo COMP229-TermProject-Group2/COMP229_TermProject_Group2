@@ -28,6 +28,19 @@
                     </a>
                     </div>
                 </div>
+
+                <div>
+                    <p>Tournament.length: <%=Tournament.length %>
+
+                    <p class="names"> Registered players: <%= Tournament.Players %> </p>
+                    <ul>
+                           <% for(var i=0; i<Tournament.length; i++) { %>
+                          <li class="displayPlayers">
+                          
+                            <p> <%= Tournament.Players[i] %> </p>
+                          </li> <% } %>
+                    </ul>
+                </div>
             </form>
         </div>
     </div>

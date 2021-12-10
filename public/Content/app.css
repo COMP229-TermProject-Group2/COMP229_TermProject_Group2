@@ -1052,3 +1052,16 @@ fieldset {
 .about-container {
   min-height: 52%;
 }
+
+
+.names {
+  color: #0388e3;
+  padding-top: 40px;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.displayPlayers {
+  color: #0388e3;
+}

@@ -126,11 +126,14 @@ module.exports.displayRegisterPlayers = (req, res, next) => {
       console.log(err);
       res.end(err);
     } else {
+      
       res.render("tournament/registerPlayer", {
         title: "Register for a Tournament",
         displayName: req.user ? req.user.displayName : "",
         Tournament: RegisterForTournament,
       });
+      
+      console.log(RegisterForTournament.Players)
     }
   });
 }
