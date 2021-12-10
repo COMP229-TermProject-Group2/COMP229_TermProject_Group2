@@ -19,6 +19,14 @@ let playerContainer = null;
 let nBrackets = null;
 
 /////////////////////////////////////////////////////////////////////////////////
+let updateButton = document.getElementById("updateButton");
+updateButton.addEventListener("click", (event) => {
+  if (nPlayers != registeredPlayers.length) {
+    window.alert('Cannot begin tournament.\nNot enough players registered.');
+    event.preventDefault();
+  }
+});
+
 
 //Set headers according to the number of Rounds
 function buildHeaders() {
