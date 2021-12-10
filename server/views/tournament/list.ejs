@@ -34,19 +34,27 @@
             <tr class='clickable-row active' data-href='/tournaments/brackets/<%= TournamentList[count]._id %>'>
               <td class="col-2 align-middle"><%= TournamentList[count].Name %></td>
               <td class="col-2 align-middle"><%= TournamentList[count].Organizer %></td>
-              <td class="col-2 align-middle"><%= TournamentList[count].Description %></td>
+              <td class="col-2 align-middle"><%= TournamentList[count].Description && TournamentList[count].Description.substring(0, 90) %>...</td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Size %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Date %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Active %></td>
-              <% if(typeof displayName == 'string' && displayName) { %>
-              <td class="text-center col-1"><a href="/tournaments/edit/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit</a></td>
-              <td class="text-center col-1"><a href="/tournaments/delete/<%= TournamentList[count]._id %>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a></td>
-            <% } %>
             <% if((TournamentList[count].Active == true) && (TournamentList[count].Players.length < TournamentList[count].Size)) { %>
               <td class="text-center col-1"><a href="/tournaments/registerPlayer/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Register</a></td>
             <% } else { %>
               <td class="text-center col-1">Full</td>
+              <% if(typeof displayName == 'string' && displayName) { %>
+              <td class="text-center col-1">
+                <% if(TournamentList[count].Organizer == username) { %>
+                  <a href="/tournaments/edit/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit</a>
+                  <% } %>
+                </td>              
+              <td class="text-center col-1">
+                <% if(TournamentList[count].Organizer == username) { %>
+                <a href="/tournaments/delete/<%= TournamentList[count]._id %>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
+                <% } %>
+              </td>        
             <% } %>
+            
             </tr>
           <% } %>
         </table>

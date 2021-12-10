@@ -10,7 +10,8 @@ const organizer = jQuery.isEmptyObject(
 
 const registeredPlayers = document
   .querySelector("#registeredPlayers")
-  .innerHTML.split(",");
+  .innerHTML.trim()
+  .split(",");
 tournamentBrackets = document.querySelector(".tournament-brackets");
 tournamentHeaders = document.querySelector(".tournament-headers");
 let listItem = null;
@@ -18,6 +19,14 @@ let playerContainer = null;
 let nBrackets = null;
 
 /////////////////////////////////////////////////////////////////////////////////
+let updateButton = document.getElementById("updateButton");
+updateButton.addEventListener("click", (event) => {
+  if (nPlayers != registeredPlayers.length) {
+    window.alert('Cannot begin tournament.\nNot enough players registered.');
+    event.preventDefault();
+  }
+});
+
 
 //Set headers according to the number of Rounds
 function buildHeaders() {
@@ -31,7 +40,6 @@ function buildHeaders() {
   }
 
   headersList = tournamentHeaders.getElementsByTagName("h3");
-  console.log("Headers", headersList);
 
   if (nPlayers === 32) {
     headersList[1].innerHTML = "Round of 16";
@@ -145,7 +153,7 @@ function buildFifthRound() {
 }
 //Create champion tag
 function buildChampion() {
-  console.log(nBrackets);
+  console.log("Number of Brackets: ", nBrackets);
   const lastBracket = document.getElementsByClassName("bracket")[nBrackets - 1];
 
   lastBracket.innerHTML = "";
@@ -202,8 +210,9 @@ function populatePlayers(listOfPlayers) {
     (registeredPlayers.length > nPlayers ? nPlayers : registeredPlayers.length);
     i++
   ) {
+    console.log("Registered Players Length: ", registeredPlayers.length);
     players[i].innerHTML = registeredPlayers[i];
-    if (organizer !== "") {
+    if (organizer !== "" && registeredPlayers[i] !== "") {
       anchor[i + 1].className = "select-winner";
     }
   }
