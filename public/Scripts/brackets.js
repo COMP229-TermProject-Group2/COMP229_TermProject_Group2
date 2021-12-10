@@ -35,115 +35,233 @@ let listOfPlayers = [
   "Amanda",
 ];
 //Global Variables
-const nMatches = parseInt(document.getElementById("tournament-size").innerHTML);
+const nPlayers = parseInt(document.getElementById("tournament-size").innerHTML);
 const organizer = jQuery.isEmptyObject(
   document.getElementsByTagName("p")[0].innerHTML.slice(9)
 )
   ? ""
   : document.getElementsByTagName("p")[0].innerHTML.slice(9);
 
+tournamentBrackets = document.querySelector(".tournament-brackets");
+tournamentHeaders = document.querySelector(".tournament-headers");
+let listItem = null;
+let playerContainer = null;
+let nBrackets = null;
+
+/////////////////////////////////////////////////////////////////////////////////
+
+function buildHeaders() {
+  nBrackets = getBaseLog(2, parseInt(nPlayers)) + 1;
+
+  for (let i = 1; i < nBrackets; i++) {
+    header = document.createElement("h3");
+    tournamentHeaders.appendChild(header);
+  }
+
+  headersList = tournamentHeaders.getElementsByTagName("h3");
+  console.log("Headers", headersList);
+
+  if (nPlayers === 32) {
+    headersList[1].innerHTML = "Round of 16";
+    headersList[2].innerHTML = "Quarter-Finals";
+    headersList[3].innerHTML = "Semi-Finals";
+    headersList[4].innerHTML = "Final";
+    headersList[5].innerHTML = "Champion";
+  } else if (nPlayers === 16) {
+    headersList[1].innerHTML = "Quarter-Finals";
+    headersList[2].innerHTML = "Semi-Finals";
+    headersList[3].innerHTML = "Final";
+    headersList[4].innerHTML = "Champion";
+  } else if (nPlayers === 8) {
+    headersList[1].innerHTML = "Semi-Finals";
+    headersList[2].innerHTML = "Final";
+    headersList[3].innerHTML = "Champion";
+  } else if (nPlayers === 4) {
+    headersList[1].innerHTML = "Final";
+    headersList[2].innerHTML = "Champion";
+  }
+}
+
+function buildBrackets(numberOfPlayers) {
+  for (let i = 0; i < nBrackets; i++) {
+    unorderedList = document.createElement("ul");
+    unorderedList.className = "bracket bracket-" + (i + 1);
+    tournamentBrackets.appendChild(unorderedList);
+  }
+}
+
+function getBaseLog(x, y) {
+  nBrackets = Math.log(y) / Math.log(x);
+  return nBrackets;
+}
+
 function buildFirstRound() {
   const firstBracket = document.getElementsByClassName("bracket-1")[0];
-  let listItem = null;
-  let playerContainer = null;
 
   firstBracket.innerHTML = "";
 
-  for (let i = 1; i <= nMatches / 2; ++i) {
+  for (let i = 1; i <= nPlayers / 2; ++i) {
     listItem = document.createElement("li");
     listItem.className = "team-item";
     firstBracket.appendChild(listItem);
 
-    if (organizer != "") {
-      for (let i = 1; i <= 2; i++) {
-        let anchor = document.createElement("a");
-        listItem.appendChild(anchor);
-        anchor.href = "#";
-        anchor.className = "select-winner";
-        playerContainer = document.createElement("p");
-        playerContainer.className = "players";
-        anchor.appendChild(playerContainer);
-      }
-    } else {
-      for (let i = 1; i <= 2; ++i) {
-        playerContainer = document.createElement("p");
-        playerContainer.className = "players";
-        listItem.appendChild(playerContainer);
-      }
-    }
-    const versus = document.createTextNode("VS");
-    listItem.insertBefore(versus, listItem.childNodes[1]);
+    populateLi();
   }
   populatePlayers(listOfPlayers);
 }
 
 function buildSecondRound() {
   const secondBracket = document.getElementsByClassName("bracket-2")[0];
-  let listItem = null;
-  let playerContainer = null;
 
   secondBracket.innerHTML = "";
 
-  for (let i = 1; i <= nMatches / 4; ++i) {
+  for (let i = 1; i <= nPlayers / 4; ++i) {
     listItem = document.createElement("li");
     listItem.className = "team-item";
     secondBracket.appendChild(listItem);
+    populateLi();
+  }
+}
+
+function buildThirdRound() {
+  if (document.getElementsByClassName("bracket-3")[0]) {
+    const thirdBracket = document.getElementsByClassName("bracket-3")[0];
+
+    thirdBracket.innerHTML = "";
+
+    for (let i = 1; i <= nPlayers / 8; ++i) {
+      listItem = document.createElement("li");
+      listItem.className = "team-item";
+      thirdBracket.appendChild(listItem);
+      populateLi();
+    }
+  }
+}
+
+function buildFourthRound() {
+  if (document.getElementsByClassName("bracket-4")[0]) {
+    const fourthBracket = document.getElementsByClassName("bracket-4")[0];
+
+    fourthBracket.innerHTML = "";
+
+    for (let i = 1; i <= nPlayers / 16; ++i) {
+      listItem = document.createElement("li");
+      listItem.className = "team-item";
+      fourthBracket.appendChild(listItem);
+      populateLi();
+    }
+  }
+}
+
+function buildFifthRound() {
+  if (document.getElementsByClassName("bracket-5")[0]) {
+    const fifthBracket = document.getElementsByClassName("bracket-5")[0];
+
+    fifthBracket.innerHTML = "";
+
+    for (let i = 1; i <= nPlayers / 32; ++i) {
+      listItem = document.createElement("li");
+      listItem.className = "team-item";
+      fifthBracket.appendChild(listItem);
+      populateLi();
+    }
+  }
+}
+
+function buildChampion() {
+  console.log(nBrackets);
+  const lastBracket = document.getElementsByClassName("bracket")[nBrackets - 1];
+
+  lastBracket.innerHTML = "";
+
+  listItem = document.createElement("li");
+  listItem.className = "team-item";
+  lastBracket.appendChild(listItem);
+
+  if (organizer != "") {
+    let anchor = document.createElement("a");
+    listItem.appendChild(anchor);
+    anchor.href = "#";
+    anchor.className = "select-winner";
+    playerContainer = document.createElement("p");
+    playerContainer.className = "players";
+    anchor.appendChild(playerContainer);
+  } else {
+    playerContainer = document.createElement("p");
+    playerContainer.className = "players";
+    listItem.appendChild(playerContainer);
+  }
+}
+
+function populateLi() {
+  if (organizer != "") {
+    for (let i = 1; i <= 2; i++) {
+      let anchor = document.createElement("a");
+      listItem.appendChild(anchor);
+      anchor.href = "#";
+      anchor.className = "select-winner";
+      playerContainer = document.createElement("p");
+      playerContainer.className = "players";
+      anchor.appendChild(playerContainer);
+    }
+  } else {
     for (let i = 1; i <= 2; ++i) {
       playerContainer = document.createElement("p");
       playerContainer.className = "players";
       listItem.appendChild(playerContainer);
     }
   }
-  //   populatePlayers(listOfPlayers);
+  const versus = document.createTextNode("VS");
+  listItem.insertBefore(versus, listItem.childNodes[1]);
 }
 
 function populatePlayers(listOfPlayers) {
   const players = document.getElementsByClassName("players");
 
-  for (let i = 0; i < nMatches; ++i) {
+  for (let i = 0; i < nPlayers; ++i) {
     players[i].innerHTML = listOfPlayers[i];
   }
 }
 
+function populateNextBracket(target) {
+  nextBracket =
+    target.parentElement.parentElement.nextElementSibling.className.slice(8);
+  console.log(nextBracket);
+
+  winner = target.querySelector(".players").innerHTML;
+  console.log(winner);
+
+  winnerIndex = $(target.parentElement).index();
+
+  const players = document
+    .querySelector("." + nextBracket)
+    .getElementsByClassName("players");
+
+  players[winnerIndex].innerHTML = winner;
+}
+
 $(document).on("click", ".select-winner", function (e) {
-  //   if (e.target.siblings.classList.contains("winner")) {
-  // e.target.siblings.classList.remove("winner");
-  e.target.classList.toggle("winner");
-  //   }
-  console.log(e.target);
+  e.preventDefault();
+  if ($(e.target).siblings().hasClass("winner")) {
+    $(e.target).siblings().removeClass("winner");
+    e.target.classList.toggle("winner");
+  } else {
+    e.target.classList.toggle("winner");
+    console.log(e.target.querySelector(".players").innerHTML);
+  }
+  console.log($(this.parentElement).index());
+  populateNextBracket(e.target);
 });
 
-// const anchors = document.getElementsByTagName("a");
-// console.log(anchors);
-// for (let a of anchors) {
-//   a.addEventListener("click", onSelect);
-// }
-
-// function onSelect(event) {
-//   event.preventDefault();
-//   console.log(event.target);
-// }
-
-// const listOfLinks = document.querySelectorAll("a");
-
-// console.log(listOfLinks);
-
-// listOfLinks.forEach((i) => {
-//   i.addEventListener(
-//     "click",
-//     (e) => {
-//       console.log(e.target);
-//       const clickedButtonIndex = [...listOfLinks].indexOf(e.target.tagName);
-//       console.log(listOfLinks[clickedButtonIndex]);
-//       listOfLinks[clickedButtonIndex].classList.toggle("select-winner");
-//     },
-//     false
-//   );
-// });
-
 function buildRounds() {
+  buildHeaders();
+  buildBrackets(nPlayers);
   buildFirstRound();
   buildSecondRound();
+  buildThirdRound();
+  buildFourthRound();
+  buildFifthRound();
+  buildChampion();
 }
 
 window.addEventListener("load", buildRounds, false);

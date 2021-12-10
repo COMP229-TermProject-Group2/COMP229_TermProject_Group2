@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const { db, collection } = require("../models/tournament");
 
 const Tournament = require("../models/tournament");
 
@@ -116,3 +117,33 @@ module.exports.displayBrackets = (req, res, next) => {
     }
   });
 };
+
+module.exports.displayRegisterPlayers = (req, res, next) => {
+  let id = req.params.id;
+
+  Tournament.findById(id, (err, RegisterForTournament) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.render("tournament/registerPlayer", {
+        title: "Register for a Tournament",
+        displayName: req.user ? req.user.displayName : "",
+        Tournament: RegisterForTournament,
+      });
+    }
+  });
+}
+
+module.exports.processRegisterPlayers = (req, res, next) => {
+  let id = req.params.id;
+
+  Tournament.findOneAndUpdate({_id: id }, {$push: {Players: req.body.players}}, (err) => {
+    if(err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.redirect("/tournaments");
+    }
+  });
+}
