@@ -13,6 +13,7 @@ module.exports.displayTournamentList = (req, res, next) => {
       res.render("tournament/list", {
         title: "Tournament List",
         displayName: req.user ? req.user.displayName : "",
+        username: req.user ? req.user.username : "",
         TournamentList,
       });
     }
