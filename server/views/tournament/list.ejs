@@ -34,10 +34,13 @@
             <tr class='clickable-row active' data-href='/tournaments/brackets/<%= TournamentList[count]._id %>'>
               <td class="col-2 align-middle"><%= TournamentList[count].Name %></td>
               <td class="col-2 align-middle"><%= TournamentList[count].Organizer %></td>
-              <td class="col-2 align-middle"><%= TournamentList[count].Description %></td>
+              <td class="col-2 align-middle"><%= TournamentList[count].Description && TournamentList[count].Description.substring(0, 90) %>...</td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Size %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Date %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Active %></td>
+              <% if(TournamentList[count].Active == true) { %>
+                <td class="text-center col-1"><a href="/tournaments/registerPlayer/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Register</a></td>
+                <% } %>
               <% if(typeof displayName == 'string' && displayName) { %>
               <td class="text-center col-1">
                 <% if(TournamentList[count].Organizer == username) { %>
@@ -50,9 +53,7 @@
                 <% } %>
               </td>        
             <% } %>
-            <% if(TournamentList[count].Active == true) { %>
-            <td class="text-center col-1"><a href="/tournaments/registerPlayer/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Register</a></td>
-            <% } %>
+            
             </tr>
           <% } %>
         </table>
