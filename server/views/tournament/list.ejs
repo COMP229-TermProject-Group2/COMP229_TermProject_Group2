@@ -22,11 +22,11 @@
             <th class="text-center col-2">Tournament Size</th>
             <th class="text-center col-2">Tournament Date</th>
             <th class="text-center col-2">Active Status</th>
+                        <th class="text-center col-2">Register for a Tournament</th>
             <% if(typeof displayName == 'string' && displayName) { %>
-            <th class="text-center col-1"></th>
-            <th class="text-center col-1"></th>
+            <th class="text-center col-1">Edit</th>
+            <th class="text-center col-1">Delete</th>
              <% } %>
-            <th class="text-center col-2">Register for a Tournament</th>
           </tr>
 
           <!-- Repeatable Template Row (Nick)-->
@@ -35,13 +35,15 @@
               <td class="col-2 align-middle"><%= TournamentList[count].Name %></td>
               <td class="col-2 align-middle"><%= TournamentList[count].Organizer %></td>
               <td class="col-2 align-middle"><%= TournamentList[count].Description && TournamentList[count].Description.substring(0, 90) %>...</td>
-              <td class="text-center align-middle col-2"><%= TournamentList[count].Size %></td>
+              <td class="text-center align-middle col-2"><%= TournamentList[count].Players.length %>/<%= TournamentList[count].Size %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Date %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Active %></td>
             <% if((TournamentList[count].Active == true) && (TournamentList[count].Players.length < TournamentList[count].Size)) { %>
               <td class="text-center col-1"><a href="/tournaments/registerPlayer/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Register</a></td>
-            <% } else { %>
+            <% } else if ((TournamentList[count].Active == true) && (TournamentList[count].Players.length == TournamentList[count].Size)) { %>
               <td class="text-center col-1">Full</td>
+            <% } else { %>
+              <td class="text-center col-1">Not Active</td>
             <% } %>
               <% if(typeof displayName == 'string' && displayName) { %>
               <td class="text-center col-1">
