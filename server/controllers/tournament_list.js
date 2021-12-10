@@ -98,7 +98,6 @@ module.exports.performDelete = (req, res, next) => {
   });
 };
 
-
 module.exports.displayBrackets = (req, res, next) => {
   let id = req.params.id;
 
