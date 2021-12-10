@@ -28,7 +28,7 @@ module.exports.displayAddPage = (req, res, next) => {
 module.exports.processAddPage = (req, res, next) => {
   let newTournament = Tournament({
     Name: req.body.name,
-    Organizer: req.body.organizer,
+    Organizer: req.user.username,
     Description: req.body.description,
     Size: req.body.size,
     Date: req.body.date,
@@ -96,6 +96,7 @@ module.exports.performDelete = (req, res, next) => {
     }
   });
 };
+
 
 module.exports.displayBrackets = (req, res, next) => {
   let id = req.params.id;
