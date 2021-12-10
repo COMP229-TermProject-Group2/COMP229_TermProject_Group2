@@ -139,9 +139,30 @@ module.exports.displayRegisterPlayers = (req, res, next) => {
 module.exports.processRegisterPlayers = (req, res, next) => {
   let id = req.params.id;
 
+  console.log(req.body.players);
+
   Tournament.findOneAndUpdate(
     { _id: id },
     { $push: { Players: req.body.players } },
+    (err) => {
+      if (err) {
+        console.log(err);
+        res.end(err);
+      } else {
+        res.redirect("/tournaments");
+      }
+    }
+  );
+};
+
+module.exports.processWinners = (req, res, next) => {
+  let id = req.params.id;
+
+  console.log(req.body.winners);
+
+  Tournament.findOneAndUpdate(
+    { _id: id },
+    { $push: { Winners: req.body.winners } },
     (err) => {
       if (err) {
         console.log(err);
