@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const tournament_listController = require("../controllers/tournament_list");
+const bracketController = require("../controllers/bracket");
 
 function requireAuth(req, res, next) {
   if (!req.isAuthenticated()) {
@@ -40,10 +41,22 @@ router.get(
 );
 
 //GET Route for displaying the Register Players page
-router.get("/registerPlayer/:id", tournament_listController.displayRegisterPlayers);
-
+router.get(
+  "/registerPlayer/:id",
+  tournament_listController.displayRegisterPlayers
+);
 
 //POST Route for processing the Register Players page
-router.post("/registerPlayer/:id", tournament_listController.processRegisterPlayers);
+router.post(
+  "/registerPlayer/:id",
+  tournament_listController.processRegisterPlayers
+);
+
+//POST Route for processing Bracket Winners
+router.get(
+  "/updateBrackets/:id",
+  requireAuth,
+  tournament_listController.processWinners
+);
 
 module.exports = router;

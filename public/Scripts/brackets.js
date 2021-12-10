@@ -1,39 +1,5 @@
 // Create and display Brackets
 
-let listOfPlayers = [
-  "Nick",
-  "Bruno",
-  "Adriano",
-  "Roman",
-  "Alex",
-  "Kevin",
-  "Adam",
-  "Matt",
-  "Evan",
-  "Abby",
-  "Heather",
-  "Christina",
-  "Ryan",
-  "Tyler",
-  "Steve",
-  "Steph",
-  "Jenna",
-  "Derek",
-  "Mike",
-  "Sam",
-  "Lucas",
-  "Rita",
-  "Aderson",
-  "Sayed",
-  "Carlos",
-  "Derek",
-  "Eva",
-  "Bill",
-  "Martha",
-  "Angela",
-  "Julia",
-  "Amanda",
-];
 //Global Variables
 const nPlayers = parseInt(document.getElementById("tournament-size").innerHTML);
 const organizer = jQuery.isEmptyObject(
@@ -42,16 +8,26 @@ const organizer = jQuery.isEmptyObject(
   ? ""
   : document.getElementsByTagName("p")[0].innerHTML.slice(9);
 
+const registeredPlayers = document
+  .querySelector("#registeredPlayers")
+  .innerHTML.trim()
+  .split(",");
 tournamentBrackets = document.querySelector(".tournament-brackets");
 tournamentHeaders = document.querySelector(".tournament-headers");
 let listItem = null;
 let playerContainer = null;
 let nBrackets = null;
+let winnersNodeList = null;
+let winnersArray = [];
+const tournamentWinner = document.getElementById("tournamentWinner");
 
 /////////////////////////////////////////////////////////////////////////////////
 
+//Set headers according to the number of Rounds
 function buildHeaders() {
   nBrackets = getBaseLog(2, parseInt(nPlayers)) + 1;
+
+  // console.log(registeredPlayers);
 
   for (let i = 1; i < nBrackets; i++) {
     header = document.createElement("h3");
@@ -59,7 +35,6 @@ function buildHeaders() {
   }
 
   headersList = tournamentHeaders.getElementsByTagName("h3");
-  console.log("Headers", headersList);
 
   if (nPlayers === 32) {
     headersList[1].innerHTML = "Round of 16";
@@ -82,6 +57,7 @@ function buildHeaders() {
   }
 }
 
+//Build brackets also according to the number of rounds
 function buildBrackets(numberOfPlayers) {
   for (let i = 0; i < nBrackets; i++) {
     unorderedList = document.createElement("ul");
@@ -90,11 +66,13 @@ function buildBrackets(numberOfPlayers) {
   }
 }
 
+// Calculate the number of rounds according to the maximum number of registered players
 function getBaseLog(x, y) {
   nBrackets = Math.log(y) / Math.log(x);
   return nBrackets;
 }
 
+//Create li elements, anchor tags and paragraphs to receive the registered players
 function buildFirstRound() {
   const firstBracket = document.getElementsByClassName("bracket-1")[0];
 
@@ -107,9 +85,9 @@ function buildFirstRound() {
 
     populateLi();
   }
-  populatePlayers(listOfPlayers);
+  populatePlayers(registeredPlayers);
 }
-
+// Create li elements, anchor tags and paragraphs to receive winners from previous round
 function buildSecondRound() {
   const secondBracket = document.getElementsByClassName("bracket-2")[0];
 
@@ -123,6 +101,7 @@ function buildSecondRound() {
   }
 }
 
+//Create li elements, anchor tags and paragraphs to receive winners from previous round
 function buildThirdRound() {
   if (document.getElementsByClassName("bracket-3")[0]) {
     const thirdBracket = document.getElementsByClassName("bracket-3")[0];
@@ -137,7 +116,7 @@ function buildThirdRound() {
     }
   }
 }
-
+//Create li elements, anchor tags and paragraphs to receive winners from previous round
 function buildFourthRound() {
   if (document.getElementsByClassName("bracket-4")[0]) {
     const fourthBracket = document.getElementsByClassName("bracket-4")[0];
@@ -152,7 +131,7 @@ function buildFourthRound() {
     }
   }
 }
-
+//Create li elements, anchor tags and paragraphs to receive winners from previous round
 function buildFifthRound() {
   if (document.getElementsByClassName("bracket-5")[0]) {
     const fifthBracket = document.getElementsByClassName("bracket-5")[0];
@@ -167,9 +146,8 @@ function buildFifthRound() {
     }
   }
 }
-
+//Create champion tag
 function buildChampion() {
-  console.log(nBrackets);
   const lastBracket = document.getElementsByClassName("bracket")[nBrackets - 1];
 
   lastBracket.innerHTML = "";
@@ -182,7 +160,8 @@ function buildChampion() {
     let anchor = document.createElement("a");
     listItem.appendChild(anchor);
     anchor.href = "#";
-    anchor.className = "select-winner";
+    anchor.className = "select-winner winner";
+    anchor.id = "winner";
     playerContainer = document.createElement("p");
     playerContainer.className = "players";
     anchor.appendChild(playerContainer);
@@ -192,14 +171,14 @@ function buildChampion() {
     listItem.appendChild(playerContainer);
   }
 }
-
+//Used to create LIs, anchor tags, paragraphs and text element
 function populateLi() {
-  if (organizer != "") {
+  if (organizer !== "") {
     for (let i = 1; i <= 2; i++) {
       let anchor = document.createElement("a");
       listItem.appendChild(anchor);
       anchor.href = "#";
-      anchor.className = "select-winner";
+      // anchor.className = "select-winner";
       playerContainer = document.createElement("p");
       playerContainer.className = "players";
       anchor.appendChild(playerContainer);
@@ -214,22 +193,30 @@ function populateLi() {
   const versus = document.createTextNode("VS");
   listItem.insertBefore(versus, listItem.childNodes[1]);
 }
-
+//Populate players into the first Bracket
 function populatePlayers(listOfPlayers) {
   const players = document.getElementsByClassName("players");
+  const anchor = document.getElementsByTagName("a");
 
-  for (let i = 0; i < nPlayers; ++i) {
-    players[i].innerHTML = listOfPlayers[i];
+  for (
+    let i = 0;
+    i <
+    (registeredPlayers.length > nPlayers ? nPlayers : registeredPlayers.length);
+    i++
+  ) {
+    // console.log("Registered Players Length: ", registeredPlayers.length);
+    players[i].innerHTML = registeredPlayers[i];
+    if (organizer !== "" && registeredPlayers[i] !== "") {
+      anchor[i + 1].className = "select-winner";
+    }
   }
 }
-
+//Receives the selected player (Winner) from the previous round and populate the next round
 function populateNextBracket(target) {
   nextBracket =
     target.parentElement.parentElement.nextElementSibling.className.slice(8);
-  console.log(nextBracket);
 
   winner = target.querySelector(".players").innerHTML;
-  console.log(winner);
 
   winnerIndex = $(target.parentElement).index();
 
@@ -237,9 +224,15 @@ function populateNextBracket(target) {
     .querySelector("." + nextBracket)
     .getElementsByClassName("players");
 
+  const anchors = document
+    .querySelector("." + nextBracket)
+    .getElementsByTagName("a");
+
   players[winnerIndex].innerHTML = winner;
+  anchors[winnerIndex].className = "select-winner";
 }
 
+//Event handler to allow selection of the winner.
 $(document).on("click", ".select-winner", function (e) {
   e.preventDefault();
   if ($(e.target).siblings().hasClass("winner")) {
@@ -249,10 +242,14 @@ $(document).on("click", ".select-winner", function (e) {
     e.target.classList.toggle("winner");
     console.log(e.target.querySelector(".players").innerHTML);
   }
-  console.log($(this.parentElement).index());
+
+  winnersArray.push(e.target.querySelector(".players").innerHTML);
+  tournamentWinner.setAttribute("value", winnersArray);
+
   populateNextBracket(e.target);
 });
 
+//start building the page
 function buildRounds() {
   buildHeaders();
   buildBrackets(nPlayers);
@@ -262,6 +259,18 @@ function buildRounds() {
   buildFourthRound();
   buildFifthRound();
   buildChampion();
+}
+
+if (organizer) {
+  let updateButton = document.getElementById("updateButton");
+
+  updateButton.addEventListener("click", (event) => {
+    if (nPlayers != registeredPlayers.length) {
+      window.alert("Cannot begin tournament.\nNot enough players registered.");
+
+      event.preventDefault();
+    }
+  });
 }
 
 window.addEventListener("load", buildRounds, false);

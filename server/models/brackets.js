@@ -9,11 +9,11 @@ const bracketModel = mongoose.Schema(
     Organizer: String,
     Size: Number,
     Active: Boolean,
-    Players: Array
+    Players: Array,
   },
   {
     collection: "brackets",
   }
 );
 
-module.exports = mongoose.model('bracketModel', bracketModel);
+module.exports = mongoose.model("bracketModel", bracketModel);

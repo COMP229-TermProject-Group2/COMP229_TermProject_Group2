@@ -1,20 +1,34 @@
 <%- include ../partials/header.ejs %>
 <body>
+  <% if(Organizer!=username) { %>
+  <header class="banner"><%- include ../partials/main_nav.ejs %></header>
+  <%}%>
   <div class="tournament-container">
     <% if(typeof Organizer == 'string' && Organizer==username) { %>
     <div class="welcome-owner">
       <p>Welcome, <%=Organizer%></p>
+      <h4>Tournament: <%=Tournament.Name %></h4>
+    </div>
+    <div class="update-tournament-button">
+      <a
+        class="updateTournament"
+        id="updateButton"
+        href="/tournaments/updateBrackets/<%=Tournament._id%>"
+        >Update Tournament</a
+      >
+    </div>
+    <% } else { %>
+    <div class="welcome-to-tournament">
+      <h3>Welcome to <%=Tournament.Name%></h3>
     </div>
     <% } %>
+
     <div class="tournament-headers">
       <div>
         <h3>Round of</h3>
         <p id="tournament-size"><%= Tournament.Size %></p>
       </div>
-      <!-- <h3>Quarter-Finals</h3>
-      <h3>Semi-Finals</h3>
-      <h3>Final</h3>
-      <h3>Winner</h3> -->
+      <!-- Headers -->
     </div>
 
     <div class="tournament-brackets">
@@ -22,7 +36,17 @@
     </div>
   </div>
 
-  <%= Tournament %>
+  <form class="form" method="post">
+    <input id="tournamentWinner" type="text" name="winners" />
+  </form>
+
+  <div class="listOfPLayers">
+    <span id="registeredPlayers"> <%= Tournament.Players %> </span>
+  </div>
+
+  <div class="listOfPLayers">
+    <span><%= Tournament.Winners %> </span>
+  </div>
 
   <!-- Script Section -->
   <script src="/jquery/dist/jquery.min.js"></script>

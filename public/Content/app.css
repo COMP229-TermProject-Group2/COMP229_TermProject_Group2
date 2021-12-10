@@ -180,6 +180,9 @@ a:hover {
   background-color: #002046;
   color: #fff;
 }
+.display-name {
+  font: 12px Arial, sans-serif;
+}
 
 /********************************/
 /******* ABOUT SECTION **********/
@@ -570,6 +573,7 @@ a:hover {
   flex-direction: column;
   align-content: center;
   justify-content: start;
+  margin-bottom: 12rem;
 }
 
 .row {
@@ -669,6 +673,7 @@ a:hover {
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  margin: 10rem;
 }
 .edit-content {
   padding: 2rem 3rem;
@@ -731,7 +736,7 @@ a:hover {
   flex-direction: row;
   list-style-type: none;
   background: #fdfdfd;
-  margin-bottom: 50px;
+  margin-bottom: 1rem;
 }
 
 .bracket {
@@ -840,13 +845,7 @@ a:hover {
 .team-item:after {
   display: none;
 }
-/* 
-.team-item time {
-  display: inline-block;
-  background-color: #dbdbdb;
-  font-size: 0.8rem;
-  padding: 0 0.6rem;
-} */
+
 .tournament-headers > div > h3 {
   display: inline;
 }
@@ -855,6 +854,16 @@ a:hover {
   text-align: center;
   margin: 3rem 0;
   text-transform: capitalize;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.welcome-to-tournament h3 {
+  text-align: center;
+  margin: 3rem 0;
+  text-transform: capitalize;
+  font-size: 3rem !important;
+  font-weight: 400;
 }
 
 #tournament-size {
@@ -868,14 +877,17 @@ a:hover {
 
 .team-item a {
   flex: 1 1 auto;
+  background-color: #888;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
 }
 
 .team-item a p {
   margin: 0;
 }
 
-.team-item a:link,
-.team-item a:visited {
+.team-item .select-winner:link,
+.team-item .select-winner:visited {
   border: none;
   text-decoration: none;
   background-color: #888;
@@ -889,24 +901,66 @@ a:hover {
   margin: 0;
 }
 
-.team-item a:hover,
-.team-item a:active {
+.team-item .select-winner:hover,
+.team-item .select-winner:active {
   background-color: #27a300;
   color: #fff;
   transition: all 0.3s;
 }
 
-.team-item a:hover p {
+.team-item .select-winner:hover p {
   display: none;
 }
 
-.team-item a:hover:before {
+.team-item .select-winner:hover:before {
   content: "Winner!";
 }
 
 .winner {
   background-color: #27a300 !important;
   color: #fff;
+}
+
+#winner {
+  background-color: #27a300 !important;
+  color: #fff;
+}
+
+.update-tournament-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.updateTournament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 15rem;
+}
+
+.updateTournament:link,
+.updateTournament:visited {
+  border: none;
+  text-decoration: none;
+  background-color: #002045;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.updateTournament:hover,
+.updateTournament:active {
+  background-color: #0488e3;
+  color: #fff;
+  cursor: pointer;
+}
+
+#registeredPlayers {
+  visibility: hidden !important;
 }
 
 /********************************/

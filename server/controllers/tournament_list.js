@@ -13,6 +13,7 @@ module.exports.displayTournamentList = (req, res, next) => {
       res.render("tournament/list", {
         title: "Tournament List",
         displayName: req.user ? req.user.displayName : "",
+        username: req.user ? req.user.username : "",
         TournamentList,
       });
     }
@@ -98,7 +99,6 @@ module.exports.performDelete = (req, res, next) => {
   });
 };
 
-
 module.exports.displayBrackets = (req, res, next) => {
   let id = req.params.id;
 
@@ -113,6 +113,7 @@ module.exports.displayBrackets = (req, res, next) => {
         username: req.user ? req.user.username.toLowerCase() : "",
         Tournament: TournamentBrackets,
         Organizer: TournamentBrackets.Organizer.toLowerCase(),
+        Players: TournamentBrackets.Players,
       });
     }
   });
@@ -136,17 +137,42 @@ module.exports.displayRegisterPlayers = (req, res, next) => {
       console.log(RegisterForTournament.Players)
     }
   });
-}
+};
 
 module.exports.processRegisterPlayers = (req, res, next) => {
   let id = req.params.id;
 
-  Tournament.findOneAndUpdate({_id: id }, {$push: {Players: req.body.players}}, (err) => {
-    if(err) {
-      console.log(err);
-      res.end(err);
-    } else {
-      res.redirect("/tournaments");
+  console.log(req.body.players);
+
+  Tournament.findOneAndUpdate(
+    { _id: id },
+    { $push: { Players: req.body.players } },
+    (err) => {
+      if (err) {
+        console.log(err);
+        res.end(err);
+      } else {
+        res.redirect("/tournaments");
+      }
     }
-  });
-}
+  );
+};
+
+module.exports.processWinners = (req, res, next) => {
+  let id = req.params.id;
+
+  console.log(req.body.winners);
+
+  Tournament.findOneAndUpdate(
+    { _id: id },
+    { $push: { Winners: req.body.winners } },
+    (err) => {
+      if (err) {
+        console.log(err);
+        res.end(err);
+      } else {
+        res.redirect("/tournaments");
+      }
+    }
+  );
+};
