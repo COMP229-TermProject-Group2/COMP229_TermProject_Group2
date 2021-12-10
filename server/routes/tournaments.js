@@ -52,11 +52,4 @@ router.post(
   tournament_listController.processRegisterPlayers
 );
 
-//POST Route for processing Bracket Winners
-router.post(
-  "/registerPlayer/:id",
-  requireAuth,
-  bracket_controller.processWinners
-);
-
 module.exports = router;
