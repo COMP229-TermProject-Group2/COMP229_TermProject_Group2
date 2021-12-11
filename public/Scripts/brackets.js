@@ -230,6 +230,11 @@ function populateNextBracket(target) {
 
   players[winnerIndex].innerHTML = winner;
   anchors[winnerIndex].className = "select-winner";
+
+  if($(anchors[winnerIndex]).siblings().hasClass("winner"))
+  {
+    anchors[winnerIndex].classList.remove("select-winner");
+  }
 }
 
 //Event handler to allow selection of the winner.
