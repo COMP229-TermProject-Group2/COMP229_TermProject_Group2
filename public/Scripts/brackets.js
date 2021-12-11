@@ -207,7 +207,7 @@ function populatePlayers(listOfPlayers) {
     // console.log("Registered Players Length: ", registeredPlayers.length);
     players[i].innerHTML = registeredPlayers[i];
     if (organizer !== "" && registeredPlayers[i] !== "") {
-      anchor[i + 1].className = "select-winner";
+      anchor[i].className = "select-winner";
     }
   }
 }
@@ -261,16 +261,16 @@ function buildRounds() {
   buildChampion();
 }
 
-if (organizer) {
-  let updateButton = document.getElementById("updateButton");
+// if (organizer) {
+//   let updateButton = document.getElementById("updateButton");
 
-  updateButton.addEventListener("click", (event) => {
-    if (nPlayers != registeredPlayers.length) {
-      window.alert("Cannot begin tournament.\nNot enough players registered.");
+//   updateButton.addEventListener("click", (event) => {
+//     if (nPlayers != registeredPlayers.length) {
+//       window.alert("Cannot begin tournament.\nNot enough players registered.");
 
-      event.preventDefault();
-    }
-  });
-}
+//       event.preventDefault();
+//     }
+//   });
+// }
 
 window.addEventListener("load", buildRounds, false);
