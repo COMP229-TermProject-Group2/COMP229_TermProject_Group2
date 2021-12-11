@@ -21,6 +21,10 @@ let winnersNodeList = null;
 let winnersArray = [];
 const tournamentWinner = document.getElementById("tournamentWinner");
 
+const listOfWinners = document
+  .getElementById("listOfWinners")
+  .innerHTML.split(",");
+
 /////////////////////////////////////////////////////////////////////////////////
 
 //Set headers according to the number of Rounds
@@ -99,6 +103,11 @@ function buildSecondRound() {
     secondBracket.appendChild(listItem);
     populateLi();
   }
+
+  populateWinnerBracket2();
+
+  if (listOfWinners !== null && listOfWinners !== "") {
+  }
 }
 
 //Create li elements, anchor tags and paragraphs to receive winners from previous round
@@ -114,6 +123,7 @@ function buildThirdRound() {
       thirdBracket.appendChild(listItem);
       populateLi();
     }
+    populateWinnerBracket3();
   }
 }
 //Create li elements, anchor tags and paragraphs to receive winners from previous round
@@ -129,6 +139,8 @@ function buildFourthRound() {
       fourthBracket.appendChild(listItem);
       populateLi();
     }
+
+    populateWinnerBracket4();
   }
 }
 //Create li elements, anchor tags and paragraphs to receive winners from previous round
@@ -232,6 +244,67 @@ function populateNextBracket(target) {
   anchors[winnerIndex].className = "select-winner";
 }
 
+function populateWinnerBracket2() {
+  if (listOfWinners !== null && listOfWinners !== "") {
+    const players = document
+      .querySelector(".bracket-2")
+      .getElementsByClassName("players");
+    const anchors = document
+      .querySelector(".bracket-2")
+      .getElementsByTagName("a");
+    console.log("ListOfWinners Length: ", listOfWinners.length);
+    for (let i = 0; i < nPlayers / 2; ++i) {
+      anchors[i].className = "select-winner";
+      players[i].innerHTML = "";
+      players[i].innerHTML = listOfWinners[i];
+    }
+  }
+}
+
+function populateWinnerBracket3() {
+  const players2 = document
+    .querySelector(".bracket-2")
+    .getElementsByClassName("players");
+  const players3 = document
+    .querySelector(".bracket-3")
+    .getElementsByClassName("players");
+  console.log(players2.length);
+
+  // if (listOfWinners.length - players2.length !== 0) {
+  const anchors = document
+    .querySelector(".bracket-3")
+    .getElementsByTagName("a");
+  let j = 0;
+  for (let i = nPlayers / 2 + 1; i <= nPlayers / 2 + nPlayers / 4; ++i) {
+    anchors[j].className = "select-winner";
+    players3[j].innerHTML = "";
+    players3[j].innerHTML = listOfWinners[i];
+
+    j++;
+  }
+}
+
+function populateWinnerBracket4() {
+  const players3 = document
+    .querySelector(".bracket-3")
+    .getElementsByClassName("players");
+  const players4 = document
+    .querySelector(".bracket-4")
+    .getElementsByClassName("players");
+  // if (listOfWinners.length - players2.length !== 0) {
+  const anchors = document
+    .querySelector(".bracket-4")
+    .getElementsByTagName("a");
+  let j = 0;
+  for (let i = nPlayers / 4 + 1; i <= nPlayers / 4 + nPlayers / 8; ++i) {
+    console.log("Anchors", anchors[j]);
+    anchors[j].className = "select-winner";
+    players3[j].innerHTML = "";
+    players3[j].innerHTML = listOfWinners[i];
+    j++;
+  }
+}
+
 //Event handler to allow selection of the winner.
 $(document).on("click", ".select-winner", function (e) {
   e.preventDefault();
@@ -259,6 +332,8 @@ function buildRounds() {
   buildFourthRound();
   buildFifthRound();
   buildChampion();
+  console.log(listOfWinners);
+  typeof listOfOwners;
 }
 
 // if (organizer) {
