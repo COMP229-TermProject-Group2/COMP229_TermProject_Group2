@@ -53,8 +53,8 @@ router.post(
 );
 
 //POST Route for processing Bracket Winners
-router.get(
-  "/updateBrackets/:id",
+router.post(
+  "/brackets/:id",
   requireAuth,
   tournament_listController.processWinners
 );
