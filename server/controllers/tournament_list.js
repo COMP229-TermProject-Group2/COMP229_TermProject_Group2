@@ -158,12 +158,13 @@ module.exports.processRegisterPlayers = (req, res, next) => {
 module.exports.processWinners = (req, res, next) => {
   let id = req.params.id;
 
-  console.log(req.body.winners);
+
+  let winnersArray = req.body.winners.split(',');
   console.log(req.params);
 
-  Tournament.findOneAndUpdate(
+  Tournament.findByIdAndUpdate(
     { _id: id },
-    { $push: { Winners: req.body.winners } },
+    { $set: { Winners: winnersArray } },
     (err) => {
       if (err) {
         console.log(err);
