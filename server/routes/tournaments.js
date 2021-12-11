@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const tournament_listController = require("../controllers/tournament_list");
-const bracketController = require("../controllers/bracket");
 
 function requireAuth(req, res, next) {
   if (!req.isAuthenticated()) {
