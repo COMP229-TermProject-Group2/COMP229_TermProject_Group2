@@ -35,7 +35,7 @@
               <td class="col-2 align-middle"><%= TournamentList[count].Name %></td>
               <td class="col-2 align-middle"><%= TournamentList[count].Organizer %></td>
               <td class="col-2 align-middle"><%= TournamentList[count].Description && TournamentList[count].Description.substring(0, 90) %>...</td>
-              <td class="text-center align-middle col-2"><%= TournamentList[count].Players.length %>/<%= TournamentList[count].Size %></td>
+              <td class="text-center align-middle col-2"><%= TournamentList[count].Players.length %> / <%= TournamentList[count].Size %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Date %></td>
               <td class="text-center align-middle col-2"><%= TournamentList[count].Active %></td>
             <% if((TournamentList[count].Active == true) && (TournamentList[count].Players.length < TournamentList[count].Size)) { %>
