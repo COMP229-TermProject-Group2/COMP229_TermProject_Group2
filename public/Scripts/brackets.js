@@ -21,6 +21,10 @@ let winnersNodeList = null;
 let winnersArray = [];
 const tournamentWinner = document.getElementById("tournamentWinner");
 
+const listOfWinners = document
+  .getElementById("listOfWinners")
+  .innerHTML.split(",");
+
 /////////////////////////////////////////////////////////////////////////////////
 
 //Set headers according to the number of Rounds
@@ -99,6 +103,11 @@ function buildSecondRound() {
     secondBracket.appendChild(listItem);
     populateLi();
   }
+
+  populateWinnerBracket2();
+
+  if (listOfWinners !== null && listOfWinners !== "") {
+  }
 }
 
 //Create li elements, anchor tags and paragraphs to receive winners from previous round
@@ -114,6 +123,7 @@ function buildThirdRound() {
       thirdBracket.appendChild(listItem);
       populateLi();
     }
+    populateWinnerBracket3();
   }
 }
 //Create li elements, anchor tags and paragraphs to receive winners from previous round
@@ -232,6 +242,38 @@ function populateNextBracket(target) {
   anchors[winnerIndex].className = "select-winner";
 }
 
+function populateWinnerBracket2() {
+  if (listOfWinners !== null && listOfWinners !== "") {
+    const players = document
+      .querySelector(".bracket-2")
+      .getElementsByClassName("players");
+    const anchors = document
+      .querySelector(".bracket-2")
+      .getElementsByTagName("a");
+    console.log("ListOfWinners Length: ", listOfWinners.length);
+    for (let i = 0; i < listOfWinners.length; ++i) {
+      anchors[i].className = "select-winner";
+      players[i].innerHTML = listOfWinners[i];
+    }
+  }
+}
+
+function populateWinnerBracket3() {
+  const players = document
+    .querySelector(".bracket-3")
+    .getElementsByClassName("players");
+
+  if (listOfWinners.length - players.length !== 0) {
+    const anchors = document
+      .querySelector(".bracket-3")
+      .getElementsByTagName("a");
+    for (let i = 17; i < listOfWinners.length; ++i) {
+      anchors[i].className = "select-winner";
+      players[i].innerHTML = listOfWinners[i];
+    }
+  }
+}
+
 //Event handler to allow selection of the winner.
 $(document).on("click", ".select-winner", function (e) {
   e.preventDefault();
@@ -259,6 +301,8 @@ function buildRounds() {
   buildFourthRound();
   buildFifthRound();
   buildChampion();
+  console.log(listOfWinners);
+  typeof listOfOwners;
 }
 
 // if (organizer) {
