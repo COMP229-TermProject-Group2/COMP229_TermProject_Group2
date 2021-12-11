@@ -159,6 +159,7 @@ module.exports.processWinners = (req, res, next) => {
   let id = req.params.id;
 
   console.log(req.body.winners);
+  console.log(req.params);
 
   Tournament.findOneAndUpdate(
     { _id: id },
