@@ -9,14 +9,22 @@
       <p>Welcome, <%=Organizer%></p>
       <h4>Tournament: <%=Tournament.Name %></h4>
     </div>
-    <div class="update-tournament-button">
-      <a
-        class="updateTournament"
-        id="updateButton"
-        href="/tournaments/updateBrackets/<%=Tournament._id%>"
-        >Update Tournament</a
-      >
-    </div>
+
+    <form class="form" method="post">
+      <!-- <div class="update-tournament-button">
+        <a
+          class="updateTournament"
+          id="updateButton"
+          href="/tournaments/updateBrackets/<%=Tournament._id%>"
+          >Update Tournament</a
+        >
+      </div> -->
+      <div class="update-tournament-button">
+        <button class="updateTournament" id="updateButton" type="submit">
+          Update Tournament
+        </button>
+      </div>
+
     <% } else { %>
     <div class="welcome-to-tournament">
       <h3>Welcome to <%=Tournament.Name%></h3>
@@ -36,18 +44,17 @@
     </div>
   </div>
 
-  <form class="form" method="post">
-    <input id="tournamentWinner" type="text" name="winners" />
-  </form>
-
   <div class="listOfPLayers">
     <span id="registeredPlayers"> <%= Tournament.Players %> </span>
   </div>
 
-  <div class="listOfPLayers">
+  <div id="listOfWinners">
     <span><%= Tournament.Winners %> </span>
   </div>
 
+  <input id="tournamentWinner" type="text" name="winners" />
+
+</form>
   <!-- Script Section -->
   <script src="/jquery/dist/jquery.min.js"></script>
   <script src="/popper.js/dist/umd/popper.min.js"></script>

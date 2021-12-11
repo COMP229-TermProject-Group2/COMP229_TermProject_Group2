@@ -963,6 +963,14 @@ a:hover {
   visibility: hidden !important;
 }
 
+#tournamentWinner {
+  visibility: hidden !important;
+}
+
+#listOfWinners {
+  visibility: hidden !important;
+}
+
 /********************************/
 /********* Contact Form *********/
 /********************************/
