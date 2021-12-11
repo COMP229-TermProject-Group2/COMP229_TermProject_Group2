@@ -235,13 +235,10 @@ function populateNextBracket(target) {
 //Event handler to allow selection of the winner.
 $(document).on("click", ".select-winner", function (e) {
   e.preventDefault();
-  if ($(e.target).siblings().hasClass("winner")) {
-    $(e.target).siblings().removeClass("winner");
-    e.target.classList.toggle("winner");
-  } else {
+    $(e.target).siblings().removeClass("select-winner");
     e.target.classList.toggle("winner");
     console.log(e.target.querySelector(".players").innerHTML);
-  }
+  
 
   winnersArray.push(e.target.querySelector(".players").innerHTML);
   tournamentWinner.setAttribute("value", winnersArray);
