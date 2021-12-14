@@ -243,11 +243,6 @@ function populateNextBracket(target) {
 
   players[winnerIndex].innerHTML = winner;
   anchors[winnerIndex].className = "select-winner";
-
-  if($(anchors[winnerIndex]).siblings().hasClass("winner"))
-  {
-    anchors[winnerIndex].classList.remove("select-winner");
-  }
 }
 
 function populateWinnerBracket2() {
@@ -396,12 +391,13 @@ function populateChampion() {
 //Event handler to allow selection of the winner.
 $(document).on("click", ".select-winner", function (e) {
   e.preventDefault();
-    $(e.target).siblings().removeClass("select-winner");
+  if ($(e.target).siblings().hasClass("winner")) {
+    $(e.target).siblings().removeClass("winner");
     e.target.classList.toggle("winner");
-
+  } else {
+    e.target.classList.toggle("winner");
     // console.log(e.target.querySelector(".players").innerHTML);
   }
-
 
   // winnersArray.push(e.target.querySelector(".players").innerHTML);
   // tournamentWinner.setAttribute("value", winnersArray);
