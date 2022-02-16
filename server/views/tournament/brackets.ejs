@@ -1,0 +1,63 @@
+<%- include ../partials/header.ejs %>
+<body>
+  <% if(Organizer!=username) { %>
+  <header class="banner"><%- include ../partials/main_nav.ejs %></header>
+  <%}%>
+  <div class="tournament-container">
+    <% if(typeof Organizer == 'string' && Organizer==username) { %>
+    <div class="welcome-owner">
+      <p>Welcome, <%=Organizer%></p>
+      <h4>Tournament: <%=Tournament.Name %></h4>
+    </div>
+
+    <form class="form" method="post">
+      <!-- <div class="update-tournament-button">
+        <a
+          class="updateTournament"
+          id="updateButton"
+          href="/tournaments/updateBrackets/<%=Tournament._id%>"
+          >Update Tournament</a
+        >
+      </div> -->
+      <div class="update-tournament-button">
+        <button class="updateTournament" id="updateButton" type="submit">
+          Update Tournament
+        </button>
+      </div>
+
+    <% } else { %>
+    <div class="welcome-to-tournament">
+      <h3>Welcome to <%=Tournament.Name%></h3>
+    </div>
+    <% } %>
+
+    <div class="tournament-headers">
+      <div>
+        <h3>Round of</h3>
+        <p id="tournament-size"><%= Tournament.Size %></p>
+      </div>
+      <!-- Headers -->
+    </div>
+
+    <div class="tournament-brackets">
+      <!--Tournament Lists-->
+    </div>
+  </div>
+
+  <div class="listOfPLayers">
+    <span id="registeredPlayers"> <%= Tournament.Players %> </span>
+  </div>
+
+  <div class="listOfWinners">
+    <span id="listOfWinners"><%= Tournament.Winners %> </span>
+  </div>
+
+  <input id="tournamentWinner" type="text" name="winners" />
+
+</form>
+  <!-- Script Section -->
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/popper.js/dist/umd/popper.min.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/Scripts/brackets.js"></script>
+</body>

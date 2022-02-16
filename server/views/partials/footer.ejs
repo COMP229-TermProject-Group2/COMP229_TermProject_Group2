@@ -1,5 +1,49 @@
+
+  <section class="contact-us">
+    <div class="grid grid--3-cols grid-contact-us">
+      <div class="social-media">
+        <a href="/home"><img src="/Assets/images/arena229-white-330ppi.png" style="width:25rem"/></a>
+        <p>
+        <a class="social-links" href="https://www.instagram.com/arena229.io/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+        <a class="social-links" href="mailto:arena229.io@gmail.com" target="_blank"><i class="fas fa-envelope fa-lg"></i></a>
+        </p>
+      </div>
+
+      <div class="sitemap">
+        <h3>Sitemap</h3>
+        <h5>All our pages</h5>
+        <ul>
+          <li><a href="../home" target="_blank">Home</a></li>
+          <li><a href="../tournaments" target="_blank">Tournaments</a></li>
+          <li><a href="../about" target="_blank">About us</a></li>
+          <li><a href="../contact" target="_blank">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="form-contact">
+        <h3>Contact us</h3>
+        <h5>Send us a message</h5>
+        <form action="mailto:arena229.io@gmail.com" method="post" class="form" id="datacolection">
+          <div class="form-control"  id="nameError">
+            <input name="name" type="text" id="fName" tabindex="1" placeholder="Full Name" required="required"> 
+          </div>
+          <div class="form-control" id="emailError">
+          <input name="email" type="text" id="fName" tabindex="3" placeholder="email" required="required"> 
+          </div>
+          <div class="form-control" id="messageError">
+            <textarea name="textMessage" cols="18" rows="4" maxlength="140" placeholder="Your message" id="textMessage" tabindex="5"></textarea>
+          </div>
+          <div>
+            <input name="btnSubmit" type="submit" id="btnSubmit" tabindex="7" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
  <!-- Script Section -->
  <script src="/jquery/dist/jquery.min.js"></script>
+ <script src="/popper.js/dist/umd/popper.min.js"></script>
  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
  <script src="/Scripts/app.js"></script>
 </body>

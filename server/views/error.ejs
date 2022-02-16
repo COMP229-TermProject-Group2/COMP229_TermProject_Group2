@@ -1,3 +1,12 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<%- include partials/header.ejs %> <%- include partials/main_nav.ejs %>
+
+<div class="container error-container">
+<div class = "content">
+  <h1><%= message %></h1>
+  <h2><%= error.status %></h2>
+  <!--Potentially remove error stack before deployment-->
+  <!-- <pre><%= error.stack %></pre> -->
+</div>
+</div>
+
+<%- include partials/bottom_nav.ejs %> <%- include partials/footer.ejs %>

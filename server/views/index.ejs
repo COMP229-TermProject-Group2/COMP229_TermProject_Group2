@@ -1,7 +1,44 @@
-<%- include partials/header.ejs %><%- include partials/main_nav.ejs %>
-  <body>
-    <h1>Welcome to the <%= title %> page</h1>
-  </body>
+<%- include partials/header.ejs %>
+<body>
+  <section class="section-hero">
+    <div class="hero-img-box">
+      <div class="partials"><%- include partials/main_nav.ejs %></div>
+      <div class="text-box">
+        <h1 class="hero-title">Designed for Competitors</h1>
+        <h2 class="hero-subtitle">Hundreds of Tournaments</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-about generic-container grid grid--2-cols">
+    <div class="about-image"><a href="/tournaments"><img src="Assets/images/arena1-01.jpg" style="width:30rem"></a></div>
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Arena 229</h2>
+          <h3>A Place for friends</h3>
+          <p>Whether you're an organizer or a competitor, Arena 229 is your one stop spot for all your competitive needs.
+          Join thousands of users today for free and paid tournaments and take your shot at being a champion!</p>
+          <a class="button-about" href="/about">Read More</a>
+        </div>
+    </div>
+  </section>
+
+  <section class ="section-popular">
+    <div class="container-popular">
+      <div class="popular-header">
+        <h2>Popular Tournaments</h2>
+        <h3>Pick yours</h3>
+      </div>
+      <div class="popular-images popular-grid grid--6-cols">
+        <a href="/tournaments"><img src="/Assets/images/image-0.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-1.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-2.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-4.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-5.jpeg"/></a>
+        <a href="/tournaments"><img src="/Assets/images/image-6.jpeg"/></a>
+      </div>
+    </div>
+  </section>
+
 
 <%- include partials/bottom_nav.ejs %> <%- include partials/footer.ejs %>
-

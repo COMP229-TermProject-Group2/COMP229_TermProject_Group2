@@ -1,34 +1,67 @@
-<%- include ../partials/header.ejs %><%- include ../partials/main_nav.ejs %>
-<body>
-  <h1>Welcome to the <%= title %> page</h1>
+<%- include ../partials/header.ejs %>
+<header class="banner">
+<%- include ../partials/main_nav.ejs %>
+</header>
 
+<main class="container table-container">
+  <div class="row">
+    <div class="offset-md-0 col-md-12">
+      <h1 class="tournaments-title"><%= title %></h1>
+
+  <% if(typeof displayName == 'string' && displayName) { %>
   <a href="/tournaments/add" class="btn btn-primary" role="button"
     ><i class="fas fa-plus-circle"></i>Add a Tournament</a>
-  <br><br> <!-- Added these so the add button and table weren't so squat (Nick) -->
-  <table id="tournamentList">
-    <tr>
-      <th>Tournament Name</th>
-      <th>Organizer</th>
-      <th>Tournament Size</th>
-      <th>Tournament Date</th>
-      <th>Active Status<th>
-      <th></th>
-      <th></th>
-    </tr>
+  <% } %>
+  
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+          <tr class="header-format">
+            <th class="text-center col-2">Tournament Name</th>
+            <th class="text-center col-2">Organizer</th>
+            <th class="text-center col-2">Description</th>
+            <th class="text-center col-2">Tournament Size</th>
+            <th class="text-center col-2">Tournament Date</th>
+            <th class="text-center col-2">Active Status</th>
+                        <th class="text-center col-2">Register for a Tournament</th>
+            <% if(typeof displayName == 'string' && displayName) { %>
+            <th class="text-center col-1">Edit</th>
+            <th class="text-center col-1">Delete</th>
+             <% } %>
+          </tr>
 
-    <!-- Repeatable Template Row (Nick)-->
-    <% for(let count = 0; count < TournamentList.length; count++) { %>
-      <tr>
-        <td><%= TournamentList[count].Name %></td>
-        <td><%= TournamentList[count].Organizer %></td>
-        <td><%= TournamentList[count].Size %></td>
-        <td><%= TournamentList[count].Date %></td>
-        <td><%= TournamentList[count].Active %></td>
-        <td><a href="/tournaments/edit/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Edit</a></td>
-        <td><a href="/tournaments/delete/<%= TournamentList[count]._id %>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i>Delete</a></td>
-      </tr>
-    <% } %>
-  </table>
-</body>
-
+          <!-- Repeatable Template Row (Nick)-->
+          <% for(let count = 0; count < TournamentList.length; count++) { %>
+            <tr class='clickable-row active' data-href='/tournaments/brackets/<%= TournamentList[count]._id %>'>
+              <td class="col-2 align-middle"><%= TournamentList[count].Name %></td>
+              <td class="col-2 align-middle"><%= TournamentList[count].Organizer %></td>
+              <td class="col-2 align-middle"><%= TournamentList[count].Description && TournamentList[count].Description.substring(0, 90) %>...</td>
+              <td class="text-center align-middle col-2"><%= TournamentList[count].Players.length %> / <%= TournamentList[count].Size %></td>
+              <td class="text-center align-middle col-2"><%= TournamentList[count].Date %></td>
+              <td class="text-center align-middle col-2"><%= TournamentList[count].Active %></td>
+            <% if((TournamentList[count].Active == true) && (TournamentList[count].Players.length < TournamentList[count].Size)) { %>
+              <td class="text-center col-1"><a href="/tournaments/registerPlayer/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>Register</a></td>
+            <% } else if ((TournamentList[count].Active == true) && (TournamentList[count].Players.length == TournamentList[count].Size)) { %>
+              <td class="text-center col-1">Full</td>
+            <% } else { %>
+              <td class="text-center col-1">Not Active</td>
+            <% } %>
+              <% if(typeof displayName == 'string' && displayName) { %>
+              <td class="text-center col-1">
+                <% if(TournamentList[count].Organizer == username) { %>
+                  <a href="/tournaments/edit/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit</a>
+                  <% } %>
+                </td>
+              <td class="text-center col-1">
+                <% if(TournamentList[count].Organizer == username) { %>
+                <a href="/tournaments/delete/<%= TournamentList[count]._id %>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
+                <% } %>
+              </td>
+            <% } %>
+            </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
 <%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>

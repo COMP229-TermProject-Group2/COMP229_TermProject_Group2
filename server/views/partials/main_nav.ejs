@@ -1,51 +1,41 @@
 <!-- Main Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/home"><img src="/Assets/images/arena-darkblue-updated.png" style="width:300px"></a>
-    <link rel="shortcut icon" type="image/png" href="/Assets/images/favicon.png"/>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<div class="nav-container">
+  <a href="/home"
+    ><img
+      class="logo"
+      src="/Assets/images/arena229-white-330ppi.png"
+      alt="Image of a concert and big screens"
+  /></a>
+  <nav class="main-nav">
+    <ul class="main-nav-list">
+      <li><a class="main-nav-link" href="/home">Home</a></li>
+      <li><a class="main-nav-link" href="/contact">Contact</a></li>
+      <li><a class="main-nav-link" href="/about">About</a></li>
+      <li>
+        <a class="main-nav-link nav-cta" href="/tournaments">Tournaments</a>
+      </li>
+      <% if(typeof displayName == 'string' && displayName) { %>
 
-        <% if(title == "Home") { %>
-        <li class="nav-item active">
-        <% } else { %>
-        <li class="nav-item">
-        <% } %>
-          <a class="nav-link"  href="/home"><i class="fas fa-home"></i>Home</a>
-          <!-- <i class="fas fa-3x fa-laptop-house"></i> -->
-        </li>
-
-         <% if(title == "Tournament List") { %>
-        <li class="nav-item active">
-        <% } else { %>
-        <li class="nav-item">
-        <% } %>
-          <a class="nav-link" aria-current="page" href="/tournaments"><i class="fas fa-trophy"></i>Tournaments</a>
-          <!-- <i class="fas fa-3x fa-info-circle"></i> -->
-        </li>
-
-        <!--Space reserved for additional Nav items-->
-
-        <% if(typeof displayName == 'string' && displayName) { %>
-          <li class="nav-text"><i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %> </li>
-          <li class="nav-item"><a href="/logout" class="nav-link">
-            <i class="fas fa-lg fa-sign-out-alt"></i> Logout </a></li>
-          <% } else { %>
-            <li class="nav-item"><a href="/login" class="nav-link">
-              <i class="fas fa-lg fa-sign-in-alt"></i> Login </a></li>
-          <% } %>
-
-    </div>
-  </div>
-</nav>
+      <li class="display-name">Welcome, <br> <%= displayName %></li>
+      <li>
+        <a class="main-nav-link" href="/logout">
+          <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a
+        >
+      </li>
+      <%} else { %>
+      <li>
+        <a href="/login" class="main-nav-link">
+          <i class="fas fa-lg fa-sign-in-alt"></i> Login</a
+        >
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+  <button class="btn-mobile-nav">
+    <i class="fas fa-bars fa-3x icon-mobile-nav" name="menu-outline"></i>
+    <i
+      class="fas fa-times-circle fa-3x icon-mobile-nav"
+      name="close-outline"
+    ></i>
+  </button>
+</div>

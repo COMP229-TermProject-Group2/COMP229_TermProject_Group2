@@ -1,14 +1,1116 @@
 /* CSS code */
 
+/* Global reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  padding: 5rem;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
 }
 
-a {
+h2 {
+  font-size: 3.5rem;
+}
+/*
+a:hover {
   color: #00b7ff;
+} */
+
+/* MOBILE */
+
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  margin-right: 7rem;
 }
 
-.nav-item {
-  font-size: 24px;
+.icon-mobile-nav {
+  height: 7rem;
+  width: 4.8rem;
+  padding-top: 1.5rem;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+/********************************/
+/******* HERO SECTION ***********/
+/********************************/
+
+.logo {
+  width: 50rem;
+  margin-left: 7rem;
+}
+.section-hero {
+  margin: 0 auto;
+}
+
+.hero-img-box {
+  background-image: url("/Assets/images/banner-image.jpg");
+  /* max-height: 45rem; */
+  /* max-width: 250rem; */
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.banner {
+  background-color: #002046;
+  /* max-width: 250rem; */
+  background-size: cover;
+  /* flex-direction: column; */
+  margin: 0 auto;
+}
+
+.text-box {
+  text-align: center;
+  vertical-align: middle;
+  padding-bottom: 15rem;
+}
+
+.hero-title,
+.hero-subtitle {
+  color: #fff;
+  margin: 0;
+  padding-top: 0;
+}
+
+.hero-title {
+  font-size: 7rem;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  font-size: 3.5rem;
+  /* font-weight: 400; */
+}
+
+/********************************/
+/********** NAVIGATION **********/
+/********************************/
+
+.nav-container {
+  max-width: 200rem;
+  min-height: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 1.4 rem;
+  line-height: 1;
+  font-weight: 400;
+  /* padding-top: 3rem; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.main-nav {
+  max-width: 100rem;
+  background-color: #0388e3;
+  font-size: 2.4rem;
+  margin-left: 2rem;
+  margin-right: 7rem;
+  margin-bottom: 0;
+  border-radius: 5px;
+}
+
+.main-nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  gap: 2.5rem;
+  color: #fff;
+  list-style: none;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  padding-left: 2.2rem;
+  padding-right: 2.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #9aa5b5;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 5px;
+  color: rgb(71, 70, 70);
+  background-color: #fff;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: #002046;
+  color: #fff;
+}
+.display-name {
+  font: 12px Arial, sans-serif;
+}
+
+/********************************/
+/******* ABOUT SECTION **********/
+/********************************/
+
+.section-about {
+  padding: 6rem 0;
+  background-color: #fff;
+  /* max-width: 160rem */
+  margin: 6rem auto;
+}
+
+.about-image {
+  justify-self: end;
+  align-self: stretch;
+  margin-right: 5rem;
+}
+
+.about-content {
+  /* justify-self: start; */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  max-width: 30rem;
+  max-height: 30rem;
+  margin-left: 5rem;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* text-align: justify; */
+  flex-grow: 1;
+  padding: 0;
+}
+
+.about-text p {
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.about-text .button-about {
+  /* align-self: flex-end; */
+  display: inline-block;
+  margin-top: auto;
+}
+
+.button-about:link,
+.button-about:visited {
+  border: none;
+  text-decoration: none;
+  background-color: #0488e3;
+  color: #fff;
+  cursor: pointer;
+  max-width: 15rem;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.button-about:hover,
+.button-about:active {
+  background-color: #002045;
+  color: #fff;
+}
+
+.generic-container {
+  max-width: 160rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--6-cols {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/********************************/
+/******* SECTION POPULAR ********/
+/********************************/
+
+.section-popular {
+  padding: 6rem 0;
+  background-color: #0488e2;
+  /* max-width: 160rem; */
+  margin: 0rem auto;
+}
+
+.container-popular {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popular-header {
+  text-align: center;
+  color: #fff;
+}
+
+.popular-grid {
+  padding-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.popular-images img {
+  width: 20rem;
+}
+
+/********************************/
+/******* SECTION CONTACT ********/
+/********************************/
+
+.grid-contact-us {
+  justify-items: center;
+  column-gap: 0;
+}
+
+.contact-us {
+  padding: 6rem 0;
+  background-color: #031829;
+  /* max-width: 160rem; */
+  margin: 0rem auto;
+  /* font-family: "Lucida Grande", Helvetica, Arial, sans-serif; */
+}
+
+.contact-us h3 {
+  color: #fff;
+  font-weight: 800;
+  font-size: 2.6rem;
+}
+
+.social-media {
+  margin-left: 7rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  justify-self: end;
+  gap: 1rem;
+}
+
+.social-media a:link,
+.social-media a:visited {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.social-media a:hover,
+.social-media a:active {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fab {
+  color: #fff;
+  padding-left: 0.7rem;
+}
+
+.fas {
+  padding-left: 0.7rem;
+}
+
+.sitemap {
+  padding-top: 2rem;
+  color: rgb(185, 184, 184);
+}
+
+.sitemap a:link,
+.sitemap a:visited {
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.66;
+  cursor: pointer;
+}
+
+.sitemap a:hover,
+.sitemap a:active {
+  background-color: #0488e1;
+  opacity: 1;
+}
+
+.form-contact {
+  padding-top: 2rem;
+  color: rgb(185, 184, 184);
+  justify-self: start;
+}
+
+.form-contact label {
+  width: 7rem;
+}
+
+.form-control {
+  background-color: #031829;
+  color: rgb(185, 184, 184);
+  border: none;
+  padding: 0.5rem 0rem;
+}
+
+#btnSubmit {
+  background-color: #0488e1;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+}
+
+#btnSubmit:hover {
+  background-color: #fff;
+  color: #031829;
+  font-weight: 800;
+  transition: all 0.3s;
+}
+
+/********************************/
+/********** BOTTOM NAV **********/
+/********************************/
+
+.copyright-bar {
+  position: fixed;
+  bottom: 0;
+  /* max-width: 250rem; */
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #020e17;
+  text-align: center;
+}
+
+.navbar-text {
+  color: #fff;
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/********************************/
+/******** Tournament List *******/
+/********************************/
+
+.table-container {
+  margin: 6rem auto;
+  min-height: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tournaments-title {
+  font-size: 3.5rem;
+  color: #555555;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.header-format {
+  font-size: 1.6rem;
+  color: #555555;
+  font-weight: 400;
+  /* background-color: #002045;
+  color: #fff; */
+}
+
+.btn {
+  display: inline-block;
+  font-size: 1.4rem;
+  padding: 0.9rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.btn-primary {
+  background-color: #0488e2;
+}
+
+.btn-primary:hover {
+  background-color: #002045;
+}
+
+.btn-danger:hover,
+.btn-danger:active {
+  background-color: #fff;
+  color: #dc3544;
+}
+
+.table-hover > tbody > tr:hover > td {
+  cursor: pointer;
+  background-color: #0488e2;
+  color: #fff !important;
+}
+
+/********************************/
+/************* Login ************/
+/********************************/
+
+.login-wrapper {
+  min-height: 81.2%;
+  background-image: url("/Assets/images/login-bg.jpg");
+  background-position-x: center;
+  background-position-y: 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login-container {
+  /* margin: 8rem auto; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 3rem;
+  margin-bottom: 30rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.input-data {
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.input-data a {
+  text-decoration: none;
+}
+
+.login-input {
+  margin: 1rem auto;
+}
+
+.form-group input {
+  font-size: 1.4rem;
+}
+
+#register-here {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.btn-warning {
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #0488e2;
+  color: #0488e2;
+}
+
+.btn-warning:hover {
+  background-color: #dc3544;
+  color: #fff;
+  border: none;
+}
+
+/********************************/
+/*********** Register ***********/
+/********************************/
+
+.register-container {
+  height: 52%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: start;
+  margin-bottom: 12rem;
+}
+
+.row {
+  padding: 3rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-content {
+  padding: 5rem 3rem;
+  margin-bottom: 30rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.register-content input {
+  margin-bottom: 2rem;
+}
+
+.register-content p {
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+.last-input {
+  margin-bottom: 2rem;
+}
+
+/********************************/
+/******* Add a Tournament *******/
+/********************************/
+
+.add-container {
+  min-height: 40%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.add-content {
+  padding: 2rem 3rem;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.add-content input {
+  margin-bottom: 1rem;
+}
+
+.row {
+  padding: 3.5rem 0;
+}
+
+.add-banner {
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+  position: relative;
+  padding-left: 15%;
+  min-height: 41.2%;
+  background-image: url("/Assets/images/add-banner-1.jpg");
+  background-position-x: center;
+  background-position-y: 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+
+.add-message {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+}
+
+.add-banner:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgb(0, 32, 70);
+  opacity: 0.5;
+}
+
+/********************************/
+/******* Edit a Tournament ******/
+/********************************/
+
+.edit-container {
+  height: 75%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 10rem;
+}
+.edit-content {
+  padding: 2rem 3rem;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.edit-content input {
+  margin-bottom: 2rem;
+}
+
+.edit-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  width: 45%;
+}
+
+.edit-confirm {
+  flex-shrink: 0;
+  flex-grow: 1;
+  flex-basis: auto;
+}
+
+.cancel-delete-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/********************************/
+/*********** Brackets ***********/
+/********************************/
+
+.tournament-container {
+}
+
+.tournament-headers {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+}
+
+.tournaments-headers h3 {
+  width: 25%;
+  text-align: center;
+  font-weight: 400;
+  border-right: 1px dashed #ccc;
+  margin: 0;
+  padding: 1rem;
+}
+
+.tournament-brackets {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  list-style-type: none;
+  background: #fdfdfd;
+  margin-bottom: 1rem;
+}
+
+.bracket {
+  padding-left: 0;
+  display: flex;
+  margin: 0;
+  padding: 30px 0;
+  /* flex-grow: 1; */
+  /* flex-shrink: 1; */
+  flex-direction: column;
+  justify-content: space-around;
+  list-style-type: none;
+  border-right: 1px dashed #ccc;
+  flex: 1 1 auto;
+}
+
+.team-item {
+  display: flex !important;
+  /* flex-wrap: wrap; */
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f4f4f4;
+  padding: 0.5rem;
+  display: block;
+  margin: 0.5rem 10px;
+  position: relative;
+  vertical-align: middle;
+  line-height: 2;
+  text-align: center;
+}
+
+.team-item:after {
+  content: "";
+  border-color: #4f7a38;
+  border-width: 2px;
+  position: absolute;
+  display: block;
+  width: 10px;
+  right: -11px;
+}
+
+.team-item:nth-of-type(odd):after {
+  border-right-style: solid;
+  border-top-style: solid;
+  height: 100%;
+  top: 50%;
+}
+
+.team-item:nth-of-type(even):after {
+  border-right-style: solid;
+  border-bottom-style: solid;
+  height: 100%;
+  top: -50%;
+}
+
+.team-item:before {
+  content: "";
+  border-top: 2px solid #4f7a38;
+  position: absolute;
+  height: 2px;
+  width: 10px;
+  left: -10px;
+  top: 50%;
+}
+
+.bracket-2 .team-item:nth-of-type(odd):after {
+  height: 200%;
+  top: 50%;
+}
+
+.bracket-2 .team-item:nth-of-type(even):after {
+  height: 200%;
+  top: -150%;
+}
+
+.bracket-3 .team-item:nth-of-type(odd):after {
+  height: 350%;
+  top: 50%;
+}
+
+.bracket-3 .team-item:nth-of-type(even):after {
+  height: 350%;
+  top: -300%;
+}
+
+.bracket-4 .team-item:nth-of-type(odd):after {
+  height: 700%;
+  top: 50%;
+}
+
+.bracket-4 .team-item:nth-of-type(even):after {
+  height: 700%;
+  top: -650%;
+}
+
+.bracket:first-of-type .team-item:before {
+  display: none;
+}
+
+.bracket-4 .team-item:after {
+  display: none;
+}
+
+.bracket:last-of-type .team-item:before,
+.team-item:after {
+  display: none;
+}
+
+.tournament-headers > div > h3 {
+  display: inline;
+}
+
+.welcome-owner {
+  text-align: center;
+  margin: 3rem 0;
+  text-transform: capitalize;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.welcome-to-tournament h3 {
+  text-align: center;
+  margin: 3rem 0;
+  text-transform: capitalize;
+  font-size: 3rem !important;
+  font-weight: 400;
+}
+
+#tournament-size {
+  display: inline;
+  margin-left: 1rem;
+}
+
+.players {
+  flex: 1 1 auto;
+}
+
+.team-item a {
+  flex: 1 1 auto;
+  background-color: #888;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.team-item a p {
+  margin: 0;
+}
+
+.team-item .select-winner:link,
+.team-item .select-winner:visited {
+  border: none;
+  text-decoration: none;
+  background-color: #888;
+  color: #fff;
+  cursor: pointer;
+  max-width: 12rem;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 5px;
+  transition: all 0.3s;
+  margin: 0;
+}
+
+.team-item .select-winner:hover,
+.team-item .select-winner:active {
+  background-color: #27a300;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.team-item .select-winner:hover p {
+  display: none;
+}
+
+.team-item .select-winner:hover:before {
+  content: "Winner!";
+}
+
+.winner {
+  background-color: #27a300 !important;
+  color: #fff;
+}
+
+#winner {
+  background-color: #27a300 !important;
+  color: #fff;
+}
+
+.update-tournament-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.updateTournament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 15rem;
+}
+
+.updateTournament:link,
+.updateTournament:visited {
+  border: none;
+  text-decoration: none;
+  background-color: #002045;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.updateTournament:hover,
+.updateTournament:active {
+  background-color: #0488e3;
+  color: #fff;
+  cursor: pointer;
+}
+
+#registeredPlayers {
+  visibility: hidden !important;
+}
+
+#tournamentWinner {
+  visibility: hidden !important;
+}
+
+#listOfWinners {
+  visibility: hidden !important;
+}
+
+/********************************/
+/********* Contact Form *********/
+/********************************/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+.contact {
+  flex-direction: column;
+  min-height: 80%;
+  display: flex;
+  justify-content: start;
+  padding: 3rem 0;
+  background: linear-gradient(#002046, #020f17);
+  padding-top: 30px;
+}
+
+.contact-container {
+  padding: 3rem 0;
+}
+
+.contact-title {
+  color: #fff;
+  margin: 0;
+  padding-top: 0;
+  font-size: 6rem;
+  font-weight: 800;
+}
+
+.contact-media {
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Abel", sans-serif;
+}
+
+#contact {
+  background: #f9f9f9;
+  padding: 2rem;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+}
+
+#contact h3 {
+  color: #505050;
+  display: block;
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 1rem;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  margin: 0 0 0.5rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#contact textarea {
+  height: 10rem;
+  max-width: 100%;
+  resize: none;
+}
+
+.send-button {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: #fff;
+  background-color: #0388e3;
+  padding: 2rem 4rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.send-button:hover {
+  color: #fff;
+  background-color: #002045;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #999;
+}
+::-webkit-input-placeholder {
+  color: #888;
+}
+:-moz-placeholder {
+  color: #888;
+}
+::-moz-placeholder {
+  color: #888;
+}
+:-ms-input-placeholder {
+  color: #888;
+}
+
+/********************************/
+/************ About *************/
+/********************************/
+
+.about-container {
+  min-height: 52%;
 }
